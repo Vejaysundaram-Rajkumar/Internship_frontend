@@ -2,6 +2,8 @@ from flask import Flask, render_template,request,redirect,url_for
 import os
 from werkzeug.utils import secure_filename
 import video_to_audio
+
+
 UPLOAD_FOLDER = 'D:\\projects\\Internship_frontend\\uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
 
@@ -39,16 +41,21 @@ def upload_file():
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 filepath=os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                print(filepath)
                 file.save(filepath)
                 video_to_audio.converter(filepath,filename)
-                print("sucessfull")
+                print("uploaded")
+                os.remove(filepath)
+            
             
         return render_template("generate.html",message="none")
-    except:
+    except Exception as e:
+        print(e)
         status= "updation error"
         message="Upload failure!"
         return render_template('error.html', error_title=status, error_message=message), 500
 
 
+        
 if __name__ == '__main__':
     app.run()
