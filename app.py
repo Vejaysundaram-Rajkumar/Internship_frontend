@@ -34,18 +34,13 @@ def upload_file():
             file = request.files['file']
             # If the user does not select a file, the browser submits an
             # empty file without a filename.
-            print(file.filename)
             if file.filename == '':
-                print(file.filename)
                 return redirect(request.url)
-            print("hi4")
-            print(file)
             if file and allowed_file(file.filename):
-                print("ggs")
                 filename = secure_filename(file.filename)
-                print(filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 return render_template('generate.html', message="successful")
+            
         return render_template("generate.html",message="none")
     except:
         status= "updation error"
