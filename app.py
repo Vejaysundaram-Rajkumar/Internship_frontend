@@ -46,7 +46,9 @@ def upload_file():
                 audioname=video_to_audio.converter(filepath,filename)
                 print("uploaded")
                 os.remove(filepath)
-                audio_transcription.text_generation(audioname)
+                fname=audio_transcription.text_generation(audioname)
+                genfile_path="uploads\\"
+                return render_template("generate.html",message="successful",filepath=genfile_path)
 
         return render_template("generate.html",message="none")
     except Exception as e:

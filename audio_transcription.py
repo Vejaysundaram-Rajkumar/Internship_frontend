@@ -30,4 +30,5 @@ def text_generation(name):
             srt_file.write(f"{srt_time(start)} --> {srt_time(end)}\n")
             srt_file.write(f"{text}\n\n")
     # print the recognized text
+    return filename
     print("Transcription saved sucessfully!")
