@@ -1,21 +1,33 @@
 import whisper
 
-model = whisper.load_model("base")
 
-# load audio and pad/trim it to fit 30 seconds
-audio = whisper.load_audio("tamil.mp3")
-audio = whisper.pad_or_trim(audio)
 
-# make log-Mel spectrogram and move to the same device as the model
-mel = whisper.log_mel_spectrogram(audio).to(model.device)
+def text_generation(name):
+    #Loading the model
+    model = whisper.load_model("base")
 
-# detect the spoken language
-_, probs = model.detect_language(mel)
-print(f"Detected language: {max(probs, key=probs.get)}")
+    #loading the audio
+    audio = whisper.load_audio(name)
 
-# decode the audio
-options = whisper.DecodingOptions(language='ta')
-result = whisper.decode(model, mel, options)
-
-# print the recognized text
-print(result.text)
+    # Transcribe the audio in english
+    result_english = model.transcribe(audio, language='en')
+    filename=name.split('.')[0]+"transcribed.srt"
+    with open(filename, 'w', encoding='utf-8') as srt_file:
+        for segment in result_english['segments']:
+            start = segment['start']
+            end = segment['end']
+            text = segment['text']
+            
+            # Convert time to SRT format (hours, minutes, seconds, milliseconds)
+            def srt_time(seconds):
+                ms = int((seconds % 1) * 1000)
+                s = int(seconds)
+                m, s = divmod(s, 60)
+                h, m = divmod(m, 60)
+                return f"{h:02}:{m:02}:{s:02},{ms:03}"
+            
+            srt_file.write(f"{segment['id'] + 1}\n")
+            srt_file.write(f"{srt_time(start)} --> {srt_time(end)}\n")
+            srt_file.write(f"{text}\n\n")
+    # print the recognized text
+    print("Transcription saved sucessfully!")

@@ -2,7 +2,7 @@ from flask import Flask, render_template,request,redirect,url_for
 import os
 from werkzeug.utils import secure_filename
 import video_to_audio
-
+import audio_transcription
 
 UPLOAD_FOLDER = 'D:\\projects\\Internship_frontend\\uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
@@ -43,11 +43,11 @@ def upload_file():
                 filepath=os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 print(filepath)
                 file.save(filepath)
-                video_to_audio.converter(filepath,filename)
+                audioname=video_to_audio.converter(filepath,filename)
                 print("uploaded")
                 os.remove(filepath)
-            
-            
+                audio_transcription.text_generation(audioname)
+
         return render_template("generate.html",message="none")
     except Exception as e:
         print(e)
