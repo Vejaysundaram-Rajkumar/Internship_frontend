@@ -1,0 +1,57 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #2f98fb, #2f98fb);
+   
+}
+  /* css for the form which is for uploading the video file */
+  .upload-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+  }
+
+  .upload-form h2 {
+    text-align: center;
+    color: #333; 
+  }
+
+  .upload-form p {
+    text-align: center;
+    color: #666; 
+  }
+
+  .upload-form input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 2px solid #3498db; 
+    border-radius: 5px;
+    background-color: #ecf0f1; 
+    color: #333; 
+    font-size: 16px;
+  }
+
+  .upload-form input[type="submit"] {
+    background-color: #3498db; 
+    color: #fff; 
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+
+  .upload-form input[type="submit"]:hover {
+    background-color: #2980b9; 
+  }
+
+  .error-message {
+    color: #c0392b;
+    margin-top: 5px;
+  }
+  /* end of css for the form  */

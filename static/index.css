@@ -1,0 +1,30 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #2f98fb, #2f98fb);
+   
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, #2f98fb, #2f98fb);
+    border-radius: 10px;
+}
+
+.main-heading {
+    font-size: 3em;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.brand-name {
+    font-weight: bold;
+    color: #ffffff;
+}
