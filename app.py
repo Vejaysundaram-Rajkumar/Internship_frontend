@@ -1,7 +1,7 @@
 from flask import Flask, render_template,request,redirect,url_for
 import os
 from werkzeug.utils import secure_filename
-
+import video_to_audio
 UPLOAD_FOLDER = 'D:\\projects\\Internship_frontend\\uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
 
@@ -38,8 +38,10 @@ def upload_file():
                 return redirect(request.url)
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                return render_template('generate.html', message="successful")
+                filepath=os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(filepath)
+                video_to_audio.converter(filepath,filename)
+                print("sucessfull")
             
         return render_template("generate.html",message="none")
     except:
