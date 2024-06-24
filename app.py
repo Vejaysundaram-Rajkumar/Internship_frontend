@@ -1,8 +1,7 @@
 from flask import Flask, render_template,request,redirect,url_for
 import os
 from werkzeug.utils import secure_filename
-import video_to_audio
-import audio_transcription
+import functions
 
 UPLOAD_FOLDER = 'D:\\projects\\Internship_frontend\\uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
@@ -43,10 +42,10 @@ def upload_file():
                 filepath=os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 print(filepath)
                 file.save(filepath)
-                audioname=video_to_audio.converter(filepath,filename)
+                audioname=functions.converter(filepath,filename)
                 print("uploaded")
                 os.remove(filepath)
-                fname=audio_transcription.text_generation(audioname)
+                fname=functions.text_generation(audioname)
                 genfile_path=fname
                 return render_template("generate.html",message="successful",filepath=genfile_path)
 
