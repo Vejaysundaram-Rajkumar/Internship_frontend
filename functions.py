@@ -1,7 +1,7 @@
 import moviepy.editor 
 import os
 import whisper
-
+import shutil
 
 #extracting the audio from the video file
 def converter(path,filename):
@@ -47,4 +47,7 @@ def text_generation(name):
             srt_file.write(f"{text}\n\n")
     # print the recognized text
     return filename
+
+def save_file(gen,spc):
+    shutil.copy(gen,spc)
     

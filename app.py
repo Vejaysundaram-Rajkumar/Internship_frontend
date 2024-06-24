@@ -33,6 +33,7 @@ def upload_file():
                 return redirect(request.url)
             print("hi2")
             file = request.files['file']
+            folder_path = request.form['folderpath']
             # If the user does not select a file, the browser submits an
             # empty file without a filename.
             if file.filename == '':
@@ -47,6 +48,7 @@ def upload_file():
                 os.remove(filepath)
                 fname=functions.text_generation(audioname)
                 genfile_path=fname
+                functions.save_file(genfile_path,folder_path)
                 return render_template("generate.html",message="successful",filepath=genfile_path)
 
         return render_template("generate.html",message="none")
@@ -56,12 +58,6 @@ def upload_file():
         message="Upload failure!"
         return render_template('error.html', error_title=status, error_message=message), 500
 
-@app.route('/process_directory', methods=['POST'])
-def process_directory():
-    directory_path = request.form.get('directoryPath')
-    print(f"Selected directory path: {directory_path}")
-   
-    return "Directory path received successfully"
-        
+
 if __name__ == '__main__':
     app.run()
