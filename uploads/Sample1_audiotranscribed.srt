@@ -95,20 +95,20 @@
  I'm eight and three quarters, Mr. How old are you?
 
 25
-00:01:20,000 --> 00:01:26,000
- You're born.
+00:01:20,000 --> 00:01:22,000
+ I'm eight and three.
 
 26
-00:01:26,000 --> 00:01:28,000
- Listen, kid.
+00:01:22,000 --> 00:01:24,000
+ You're boring.
 
 27
-00:01:28,000 --> 00:01:30,000
- I'd like some peace and quiet.
+00:01:24,000 --> 00:01:28,000
+ Listen, kid.
 
 28
-00:01:30,000 --> 00:01:32,000
- Please.
+00:01:28,000 --> 00:01:32,000
+ I'd like some peace and quiet, please.
 
 29
 00:01:32,000 --> 00:01:36,000

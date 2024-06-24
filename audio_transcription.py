@@ -11,7 +11,7 @@ def text_generation(name):
 
     # Transcribe the audio in english
     result_english = model.transcribe(audio, language='en')
-    filename=name.split('.')[0]+"transcribed.srt"
+    filename=name.split('.')[0]+"transcript.srt"
     with open(filename, 'w', encoding='utf-8') as srt_file:
         for segment in result_english['segments']:
             start = segment['start']
