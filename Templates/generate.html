@@ -67,6 +67,7 @@
 
 {% if message == "successful" %}
     <script>
+        alert("transcription completed sucessfully.");
         hideLoader();
     </script>
 {% elif message == "fail" %}
@@ -114,6 +115,8 @@
     function hideLoader() {
       const loader = document.querySelector('.loader');
       loader.classList.add('loader-hidden');
+      console.log("sucess!!!");
+      alert("Transcripted video downloaded sucessfully!!");
     }
    
   </script>
