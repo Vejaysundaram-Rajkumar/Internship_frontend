@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upload Video File</title>
+<title>Subtitle Genie</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 <!-- Link to Bootstrap CSS -->
@@ -13,13 +13,17 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<link rel="icon" type="image/x-icon" href="{{fav_icon}}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-light bg-secondary bg-warning">
         <!-- Navbar content -->
         <a class="navbar-brand  fw-bold" href="/">
-            Subtitle Genie
-          </a>
+            
+          <div class="header-logo">
+            <img id="header-img" src={{fav_icon}}>
+          </div></a>
+      </div>
         <button class="navbar-toggler" type="button" 
                 data-bs-toggle="collapse" 
                 data-bs-target="#navbarSupportedContent1"
@@ -39,7 +43,7 @@
                     <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">About </a>
                 </li>
             </ul>
-        </div>
+            
     </nav>
     <br>
     <br>

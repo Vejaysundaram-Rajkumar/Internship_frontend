@@ -1,26 +1,29 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #2f98fb, #2f98fb);
-   
+    background: linear-gradient(to right, #faa2bc, #f2366f);
 }
   /* css for the form which is for uploading the video file */
   .upload-form {
     max-width: 600px;
     margin: 0 auto;
-    background-color: #fff;
+    
     padding: 20px;
+    color:#000000;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    border: 4px solid;
+    border-color: #000000;
+    box-shadow: 0 0 10px rgba(253, 240, 0, 0.1); 
   }
 
   .upload-form h2 {
     text-align: center;
-    color: #333; 
+    color: #000000; 
+    
   }
 
   .upload-form p {
     text-align: center;
-    color: #666; 
+    color: #000000;  font-weight: bold;
   }
 
   .upload-form input[type="file"] {
@@ -110,10 +113,10 @@ button {
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column; /* Ensure items are stacked vertically */
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  background-color: rgba(247, 249, 251, 0.8); /* semi-transparent white */
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  background-color: rgba(247, 249, 251, 0.8); 
   transition: opacity 0.75s, visibility 0.75s;
 }
 
@@ -150,7 +153,7 @@ button {
 .container {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(to right, #2f98fb, #2f98fb);
+  
   border-radius: 10px;
 }
 
@@ -167,3 +170,16 @@ button {
   line-height: 1.6;
 }
 
+/* css for logo */
+#header-img {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  left: 10%;
+
+}
+
+.nav-item{
+  color: #000000;
+  font-weight: bold;
+}

@@ -5,14 +5,16 @@ import functions
 
 UPLOAD_FOLDER = 'D:\\projects\\Internship_frontend\\uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
+images=os.path.join('static','images')
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
+app.config['icons'] = images
+fav_icon = os.path.join(app.config['icons'], 'logo.png')
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("index.html",fav_icon=fav_icon)
 
 
 def allowed_file(filename):
@@ -45,9 +47,9 @@ def upload_file():
                 fname=functions.text_generation(audioname)
                 genfile_path=fname
                 functions.save_file(genfile_path,folder_path)
-                return render_template("index.html",message="successful",filepath=genfile_path)
+                return render_template("index.html",message="successful",filepath=genfile_path,fav_icon=fav_icon)
 
-        return render_template("index.html",message="none")
+        return render_template("index.html",message="none",fav_icon=fav_icon)
     except Exception as e:
         print(e)
         status= "updation error"
@@ -56,4 +58,4 @@ def upload_file():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True,host="0.0.0.0")
