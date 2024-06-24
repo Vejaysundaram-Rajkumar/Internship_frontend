@@ -47,7 +47,7 @@ def upload_file():
                 print("uploaded")
                 os.remove(filepath)
                 fname=audio_transcription.text_generation(audioname)
-                genfile_path="uploads\\"
+                genfile_path=fname
                 return render_template("generate.html",message="successful",filepath=genfile_path)
 
         return render_template("generate.html",message="none")

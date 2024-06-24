@@ -60,7 +60,7 @@ body {
 /*  button styles */
 button {
   border: none;
-  padding: 0;
+  padding: 50%;
   background: none;
   cursor: pointer;
   font-family: inherit;
@@ -74,8 +74,8 @@ button {
 
 .download-button {
   display: inline-block;
-  background-color: #007bff; 
-  color: #fff; 
+  background-color: #ffffff; 
+  color: #000000; 
   padding: 10px 20px; 
   border-radius: 5px; 
   border: none; 
@@ -95,4 +95,50 @@ button {
 
 .download-link:hover {
   text-decoration: underline; 
+}
+
+/* loader css */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  background-color: rgba(247, 249, 251, 0.8); /* semi-transparent white */
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #7449f5;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+/* loader text */
+.loader-text {
+  font-size: 18px;
+  margin-top: 10px;
+}
+.loader-content {
+  text-align: center;
 }
