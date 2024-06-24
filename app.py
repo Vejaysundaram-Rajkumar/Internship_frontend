@@ -16,6 +16,9 @@ fav_icon = os.path.join(app.config['icons'], 'logo.png')
 def index():
     return render_template("index.html",fav_icon=fav_icon)
 
+@app.route('/about')
+def about():
+    return render_template("about.html",fav_icon=fav_icon)
 
 def allowed_file(filename):
     return '.' in filename and \

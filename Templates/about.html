@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subtitle Genie</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-<script src="{{ url_for('static', filename='index.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
 <!-- Link to Bootstrap CSS -->
 <link href=
 "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
           rel="stylesheet" />
-
+<!-- Link to Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <link rel="icon" type="image/x-icon" href="{{fav_icon}}">
@@ -37,31 +37,37 @@
              id="navbarSupportedContent1">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">About </a>
+                    <a class="nav-link" href="/about" ><i class="fas fa-info-circle"></i>About </a>
                 </li>
             </ul>
             
     </nav>
     <br>
     <br>
-    <div class="container">
-        <h1 class="main-heading">Transform Your Videos with Perfect Subtitles!</h1>
-        <p class="intro-text">
-            Creating subtitles is as easy as a few clicks.Upload your video and let us do the rest. Your  personalized file will be ready in moments!
+    <div class="container mt-5">
+        <h1 class="main-heading"><i class="fas fa-subtitle"></i> About Subtitle Genie</h1>
+        <p>
+            Welcome to Subtitle Genie, your ultimate solution for hassle-free subtitle generation! Our application is designed to simplify the process of creating subtitles for your video content. Whether you're an educator creating training videos, a content creator making engaging videos, or a professional needing accurate transcriptions, Subtitle Genie is here to help.
         </p>
-        <button class="btn btn-dark" id="getStartedButton">Get Started</button>
-    </div>  
-      <br>
-      <br>
-
-      
-<!-- Bootstrap JS bundle  -->
-<script 
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
-      </script>
-
+        <h3><i class="fas fa-cogs"></i> How It Works</h3>
+        <ol>
+            <li><b><i class="fas fa-upload"></i> Upload Your Video</b>: Start by uploading your video file in one of the supported formats (<code>mp4</code>, <code>avi</code>, <code>mov</code>).</li>
+            <li><b><i class="fas fa-sync-alt"></i> Automatic Processing</b>: Once uploaded, our application automatically extracts the audio from the video and processes it to generate subtitles.</li>
+            <li><b><i class="fas fa-download"></i> Download Your Subtitles</b>: After processing, you can easily download the generated subtitle file (<code>.srt</code> format) to your desired location.</li>
+        </ol>
+        <h3><i class="fas fa-star"></i> Why Choose Subtitle Genie?</h3>
+        <ul>
+            <li><b><i class="fas fa-user-friends"></i> User-Friendly Interface</b>: Our application is designed with simplicity and ease of use in mind. Upload your video, and let us handle the rest.</li>
+            <li><b><i class="fas fa-comments"></i> Real-Time Feedback</b>: Stay informed with real-time status updates during the processing of your video.</li>
+            <li><b><i class="fas fa-check-circle"></i> High Accuracy</b>: We utilize advanced transcription technology to ensure your subtitles are accurate and reliable.</li>
+            <li><b><i class="fas fa-clock"></i> Efficient and Fast</b>: Get your subtitles ready in just a few minutes, saving you time and effort.</li>
+        </ul>
+        <p>Experience the convenience of Subtitle Genie and transform your videos with perfect subtitles today!</p>
+    </div>
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
