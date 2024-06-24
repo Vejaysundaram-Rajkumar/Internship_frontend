@@ -3,28 +3,167 @@ body {
     background: linear-gradient(to right, #2f98fb, #2f98fb);
    
 }
+  /* css for the form which is for uploading the video file */
+  .upload-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+  }
+
+  .upload-form h2 {
+    text-align: center;
+    color: #333; 
+  }
+
+  .upload-form p {
+    text-align: center;
+    color: #666; 
+  }
+
+  .upload-form input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 2px solid #3498db; 
+    border-radius: 5px;
+    background-color: #ecf0f1; 
+    color: #333; 
+    font-size: 16px;
+  }
+
+  .upload-form input[type="submit"] {
+    background-color: #3498db; 
+    color: #fff; 
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+
+  .upload-form input[type="submit"]:hover {
+    background-color: #2980b9; 
+  }
+
+  .error-message {
+    color: #c0392b;
+    margin-top: 5px;
+  }
+
+  
+  .upload-form {
+    display: none;
+}
+  /* end of css for the form  */
+  
+
+/*  button styles */
+button {
+  border: none;
+  padding: 50%;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0;
+}
+
+
+.download-button {
+  display: inline-block;
+  background-color: #ffffff; 
+  color: #000000; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  border: none; 
+  text-align: center; 
+  transition: background-color 0.3s ease; 
+}
+.download-button:hover {
+  background-color: #0056b3; 
+}
+
+
+.download-link {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+
+.download-link:hover {
+  text-decoration: underline; 
+}
+
+/* loader css */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Ensure items are stacked vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  background-color: rgba(247, 249, 251, 0.8); /* semi-transparent white */
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #7449f5;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.loader-text {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
 
 .container {
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(to right, #2f98fb, #2f98fb);
-    border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to right, #2f98fb, #2f98fb);
+  border-radius: 10px;
 }
 
 .main-heading {
-    font-size: 3em;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
+  font-size: 3em;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
 }
 
 .intro-text {
-    font-size: 1.2em;
-    color: #fff;
-    line-height: 1.6;
+  font-size: 1.2em;
+  color: #fff;
+  line-height: 1.6;
 }
 
-.brand-name {
-    font-weight: bold;
-    color: #ffffff;
-}

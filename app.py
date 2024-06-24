@@ -14,10 +14,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
     return render_template("index.html")
 
-@app.route('/generate')
-def generate():
-    return render_template("generate.html")
-
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -49,9 +45,9 @@ def upload_file():
                 fname=functions.text_generation(audioname)
                 genfile_path=fname
                 functions.save_file(genfile_path,folder_path)
-                return render_template("generate.html",message="successful",filepath=genfile_path)
+                return render_template("index.html",message="successful",filepath=genfile_path)
 
-        return render_template("generate.html",message="none")
+        return render_template("index.html",message="none")
     except Exception as e:
         print(e)
         status= "updation error"
