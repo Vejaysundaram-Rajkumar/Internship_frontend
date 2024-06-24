@@ -78,7 +78,8 @@
   
         <div id="errorMessage" class="error-message"></div>
 </div>
-
+<br>
+<br>
 {% if message == "successful" %}
     <script>
         alert("transcription completed sucessfully.");
@@ -90,7 +91,15 @@
       hideLoader();
   </script>
 {% endif %}
-
+{% if uploaded_files %}
+<strong>Recent File Uploaded</strong>
+        {% for file in uploaded_files %}
+            <div class="file-card">
+                <h3>{{ file.filename }}</h3>
+                <p><a href="#">Download</a></p>
+            </div>
+        {% endfor %}
+    {% endif %}
 <script>
 // hides and unhides the form for uploading
 

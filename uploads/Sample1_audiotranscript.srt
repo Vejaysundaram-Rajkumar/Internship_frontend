@@ -1,0 +1,392 @@
+1
+00:00:00,000 --> 00:00:02,000
+ Excuse me.
+
+2
+00:00:02,000 --> 00:00:04,000
+ Hi.
+
+3
+00:00:04,000 --> 00:00:10,000
+ I'm trying to relax.
+
+4
+00:00:10,000 --> 00:00:14,000
+ I'm going to get you a drink.
+
+5
+00:00:14,000 --> 00:00:18,000
+ I'm going to get you a drink.
+
+6
+00:00:18,000 --> 00:00:22,000
+ Excuse me.
+
+7
+00:00:22,000 --> 00:00:24,000
+ Hi.
+
+8
+00:00:24,000 --> 00:00:28,000
+ I'm trying to relax.
+
+9
+00:00:28,000 --> 00:00:30,000
+ What's your mind?
+
+10
+00:00:30,000 --> 00:00:38,000
+ Oh, sorry.
+
+11
+00:00:38,000 --> 00:00:40,000
+ Hey, kid.
+
+12
+00:00:40,000 --> 00:00:42,000
+ Kid.
+
+13
+00:00:42,000 --> 00:00:46,000
+ Just come over here and sit down.
+
+14
+00:00:46,000 --> 00:00:50,000
+ What's your name?
+
+15
+00:00:50,000 --> 00:00:54,000
+ Mr. My name is Adam.
+
+16
+00:00:54,000 --> 00:00:56,000
+ You look like my grandpa.
+
+17
+00:00:56,000 --> 00:00:58,000
+ He's not as old.
+
+18
+00:00:58,000 --> 00:01:00,000
+ That's very rude.
+
+19
+00:01:00,000 --> 00:01:04,000
+ I'm Adam. Who are you?
+
+20
+00:01:04,000 --> 00:01:06,000
+ Joseph.
+
+21
+00:01:06,000 --> 00:01:08,000
+ Where's your mother?
+
+22
+00:01:08,000 --> 00:01:10,000
+ She's with her boyfriend.
+
+23
+00:01:10,000 --> 00:01:14,000
+ I'm supposed to wait over here.
+
+24
+00:01:14,000 --> 00:01:20,000
+ I'm eight and three quarters, Mr. How old are you?
+
+25
+00:01:20,000 --> 00:01:26,000
+ I'm going to take care of your boring.
+
+26
+00:01:26,000 --> 00:01:28,000
+ Listen, kid.
+
+27
+00:01:28,000 --> 00:01:30,000
+ I'd like some peace and quiet.
+
+28
+00:01:30,000 --> 00:01:32,000
+ Please?
+
+29
+00:01:32,000 --> 00:01:36,000
+ You're a grumpy, Mr. Is that why that woman left you on the bench?
+
+30
+00:01:36,000 --> 00:01:38,000
+ Was she your girlfriend?
+
+31
+00:01:38,000 --> 00:01:40,000
+ No.
+
+32
+00:01:40,000 --> 00:01:42,000
+ No, she wasn't.
+
+33
+00:01:42,000 --> 00:01:44,000
+ Listen.
+
+34
+00:01:44,000 --> 00:01:46,000
+ I have a girlfriend, Mr.
+
+35
+00:01:46,000 --> 00:01:48,000
+ I'm only in this second grade.
+
+36
+00:01:49,299 --> 00:01:50,500
+ Where's your girlfriend?
+
+37
+00:01:53,000 --> 00:01:55,000
+ My wife, Elizabeth,
+
+38
+00:01:57,200 --> 00:01:58,000
+ is gone.
+
+39
+00:02:01,200 --> 00:02:03,400
+ Well, where has she gone, too?
+
+40
+00:02:04,099 --> 00:02:04,900
+ She's gone.
+
+41
+00:02:06,400 --> 00:02:07,099
+ Gone.
+
+42
+00:02:08,900 --> 00:02:09,400
+ Ted.
+
+43
+00:02:10,599 --> 00:02:11,099
+ Oh,
+
+44
+00:02:12,400 --> 00:02:13,400
+ that's sad.
+
+45
+00:02:14,300 --> 00:02:16,300
+ Well, my girlfriend Katie,
+
+46
+00:02:16,300 --> 00:02:17,300
+ she's still really young.
+
+47
+00:02:19,400 --> 00:02:20,800
+ Was she a good girlfriend?
+
+48
+00:02:22,800 --> 00:02:24,599
+ Katie's the best I've had.
+
+49
+00:02:26,099 --> 00:02:26,599
+ Yes.
+
+50
+00:02:28,000 --> 00:02:29,599
+ Elizabeth was one of a kind.
+
+51
+00:02:30,099 --> 00:02:30,599
+ Why?
+
+52
+00:02:31,599 --> 00:02:33,599
+ Have you ever had any other girlfriends?
+
+53
+00:02:36,900 --> 00:02:39,400
+ Yesterday, I brought Katie a flower,
+
+54
+00:02:39,400 --> 00:02:41,400
+ and she gave me a kiss on the cheek.
+
+55
+00:02:44,400 --> 00:02:46,400
+ Have you ever brought a girl a flower?
+
+56
+00:02:46,400 --> 00:02:47,000
+ Kid.
+
+57
+00:02:47,900 --> 00:02:50,099
+ You've got a lot to learn about relationships.
+
+58
+00:02:51,099 --> 00:02:53,400
+ Have you ever looked into someone's eyes
+
+59
+00:02:53,400 --> 00:02:56,400
+ and had a whole conversation in an instant?
+
+60
+00:02:59,200 --> 00:03:00,400
+ Laptured someone,
+
+61
+00:03:01,200 --> 00:03:03,500
+ kept laughing until you even forgot why you were laughing?
+
+62
+00:03:06,000 --> 00:03:07,000
+ Have you ever cried when?
+
+63
+00:03:07,000 --> 00:03:09,900
+ I cried last night when I said goodbye to Katie.
+
+64
+00:03:10,900 --> 00:03:14,400
+ Uh, but that was because I had scraped my knees.
+
+65
+00:03:18,400 --> 00:03:18,900
+ Mr.
+
+66
+00:03:19,400 --> 00:03:19,900
+ Hmm.
+
+67
+00:03:20,400 --> 00:03:20,900
+ Yes.
+
+68
+00:03:22,400 --> 00:03:24,900
+ Are you going to get a new girlfriend for all those things?
+
+69
+00:03:26,599 --> 00:03:27,400
+ No.
+
+70
+00:03:28,300 --> 00:03:29,900
+ I'm happy just by myself.
+
+71
+00:03:30,800 --> 00:03:32,000
+ I think you're grumpy.
+
+72
+00:03:33,000 --> 00:03:33,500
+ Haha.
+
+73
+00:03:39,199 --> 00:03:41,000
+ I have lots of girlfriends, Mr.
+
+74
+00:03:41,699 --> 00:03:42,699
+ over six.
+
+75
+00:03:44,300 --> 00:03:45,800
+ Lizzy was my one and only.
+
+76
+00:03:47,699 --> 00:03:50,599
+ Well, you talk about your girlfriend a lot.
+
+77
+00:03:51,199 --> 00:03:51,800
+ My wife.
+
+78
+00:03:52,800 --> 00:03:54,500
+ I love getting girlfriends, Mr.
+
+79
+00:03:54,699 --> 00:03:55,599
+ you should try it.
+
+80
+00:03:55,900 --> 00:03:56,599
+ Yeah.
+
+81
+00:03:57,599 --> 00:03:59,599
+ There's not enough time left for me
+
+82
+00:03:59,900 --> 00:04:01,400
+ for those kind of shenanigans.
+
+83
+00:04:02,000 --> 00:04:06,199
+ Plus, I thought I was a boring grumpy old guy.
+
+84
+00:04:07,500 --> 00:04:08,500
+ Nah.
+
+85
+00:04:09,000 --> 00:04:10,000
+ Very nice.
+
+86
+00:04:10,699 --> 00:04:12,699
+ Well, once you stop breathing.
+
+87
+00:04:13,400 --> 00:04:14,900
+ See that pretty girl over there?
+
+88
+00:04:17,500 --> 00:04:20,000
+ I'm about to get a new girlfriend in ten seconds.
+
+89
+00:04:21,000 --> 00:04:22,000
+ There's always time.
+
+90
+00:04:24,699 --> 00:04:26,100
+ Gotta go, Mr. Bye.
+
+91
+00:04:26,300 --> 00:04:26,800
+ Bye.
+
+92
+00:04:32,500 --> 00:04:33,500
+ Ha.
+
+93
+00:04:34,500 --> 00:04:35,500
+ Ha.
+
+94
+00:04:37,500 --> 00:04:38,500
+ Ha.
+
+95
+00:04:40,500 --> 00:04:42,000
+ Nice day, isn't it?
+
+96
+00:04:42,500 --> 00:04:43,500
+ Yeah.
+
+97
+00:04:53,500 --> 00:04:54,500
+ That's beautiful.
+
+98
+00:04:55,000 --> 00:04:56,500
+ Really enjoy the park.
+

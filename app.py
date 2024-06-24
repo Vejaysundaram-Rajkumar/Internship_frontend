@@ -6,15 +6,17 @@ import functions
 UPLOAD_FOLDER = 'D:\\projects\\Internship_frontend\\uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
 images=os.path.join('static','images')
-
+upload=os.path.join('uploads')
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['icons'] = images
 fav_icon = os.path.join(app.config['icons'], 'logo.png')
 
+uploaded_files=[]
+
 @app.route('/')
 def index():
-    return render_template("index.html",fav_icon=fav_icon)
+    return render_template("index.html",fav_icon=fav_icon,uploaded_files=uploaded_files)
 
 @app.route('/about')
 def about():
@@ -46,11 +48,21 @@ def upload_file():
                 file.save(filepath)
                 audioname=functions.converter(filepath,filename)
                 print("uploaded")
+                
                 os.remove(filepath)
                 fname=functions.text_generation(audioname)
                 genfile_path=fname
+                start_index = fname.index("uploads\\") + len("uploads\\")
+                grnerate_fname = fname[start_index:]
+                # Add the uploaded file to the list
+                if(len(uploaded_files)==2):
+                    uploaded_files.pop(0)
+                uploaded_files.append({
+                    'filename': grnerate_fname,
+                    'filepath': genfile_path
+                })
                 functions.save_file(genfile_path,folder_path)
-                return render_template("index.html",message="successful",filepath=genfile_path,fav_icon=fav_icon)
+                return render_template("index.html",message="successful",filepath=genfile_path,fav_icon=fav_icon, uploaded_files=uploaded_files)
 
         return render_template("index.html",message="none",fav_icon=fav_icon)
     except Exception as e:

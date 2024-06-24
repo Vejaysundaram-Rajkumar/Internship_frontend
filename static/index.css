@@ -183,3 +183,28 @@ button {
   color: #000000;
   font-weight: bold;
 }
+/* css for card */
+.file-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.file-card h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.file-card a {
+  text-decoration: none;
+  color: #007bff; 
+  font-weight: bold;
+}
+
+.file-card a:hover {
+  text-decoration: underline;
+}
