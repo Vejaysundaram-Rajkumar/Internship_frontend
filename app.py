@@ -56,7 +56,12 @@ def upload_file():
         message="Upload failure!"
         return render_template('error.html', error_title=status, error_message=message), 500
 
-
+@app.route('/process_directory', methods=['POST'])
+def process_directory():
+    directory_path = request.form.get('directoryPath')
+    print(f"Selected directory path: {directory_path}")
+   
+    return "Directory path received successfully"
         
 if __name__ == '__main__':
     app.run()

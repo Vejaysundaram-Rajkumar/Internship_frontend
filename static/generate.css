@@ -105,8 +105,9 @@ button {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center; 
-  align-items: center;
+  flex-direction: column; /* Ensure items are stacked vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
   background-color: rgba(247, 249, 251, 0.8); /* semi-transparent white */
   transition: opacity 0.75s, visibility 0.75s;
 }
@@ -134,11 +135,8 @@ button {
     transform: rotate(1turn);
   }
 }
-/* loader text */
+
 .loader-text {
   font-size: 18px;
   margin-top: 10px;
-}
-.loader-content {
-  text-align: center;
 }
