@@ -185,9 +185,12 @@ button {
 }
 /* css for card */
 .file-card {
+  width: 40%;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
+  position: relative;
+  right: inherit;
   margin-bottom: 10px;
   background-color: #f9f9f9;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);

@@ -82,13 +82,19 @@
 <br>
 {% if message == "successful" %}
     <script>
-        alert("transcription completed sucessfully.");
+        message("transcription completed and saved sucessfully ");
         hideLoader();
+  
     </script>
 {% elif message == "fail" %}
   <script>
       alert("Upload failed. Please try again.");
       hideLoader();
+  </script>
+
+{% elif message == "downloaded sucessfully" %}
+  <script>
+      alert("Your Transcript is downloaded sucessfully.");
   </script>
 {% endif %}
 {% if uploaded_files %}
@@ -96,7 +102,7 @@
         {% for file in uploaded_files %}
             <div class="file-card">
                 <h3>{{ file.filename }}</h3>
-                <p><a href="#">Download</a></p>
+                <p><a href="/download">Download</a></p>
             </div>
         {% endfor %}
     {% endif %}
@@ -106,6 +112,11 @@
 document.getElementById('getStartedButton').addEventListener('click', function() {
       document.querySelector('.upload-form').style.display = 'block';
       this.style.display = 'none'; // Hide the "Get Started" button after showing the form
+  });
+  $(document).ready(function(){
+    function message(data){
+    alert(data);
+    }
   });
 
 

@@ -48,6 +48,23 @@ def text_generation(name):
     # print the recognized text
     return filename
 
-def save_file(gen,spc):
-    shutil.copy(gen,spc)
+def save_file(gen, spc):
+    base_name = os.path.basename(gen)  # Get the base filename from the source path
+    file_name, file_ext = os.path.splitext(base_name)  # Split filename and extension
     
+    # Check if the destination folder already has a file with the same name
+    dest_path = os.path.join(spc, base_name)
+    if not os.path.exists(dest_path):
+        shutil.copy(gen, dest_path)
+        print(f"Copied {gen} to {dest_path}")
+    else:
+        # Subsequent copies, add _copy suffix
+        i = 1
+        while True:
+            new_name = f"{file_name}_copy{i}{file_ext}"
+            new_path = os.path.join(spc, new_name)
+            if not os.path.exists(new_path):
+                shutil.copy(gen, new_path)
+                print(f"Copied {gen} to {new_path}")
+                break
+            i += 1

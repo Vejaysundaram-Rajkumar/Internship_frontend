@@ -13,6 +13,16 @@ app.config['icons'] = images
 fav_icon = os.path.join(app.config['icons'], 'logo.png')
 
 uploaded_files=[]
+genfile_path=''
+folder_path=''
+
+@app.route('/download')
+def download():
+    global genfile_path, folder_path
+    functions.save_file(genfile_path,folder_path)
+    return render_template("index.html",fav_icon=fav_icon,uploaded_files=uploaded_files,message="downloaded sucessfully")
+
+
 
 @app.route('/')
 def index():
@@ -29,6 +39,7 @@ def allowed_file(filename):
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     try:
+        global genfile_path,folder_path
         if request.method == 'POST':
             print("hi1")
             # check if the post request has the file part
