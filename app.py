@@ -48,10 +48,10 @@ def upload_file():
                 file.save(filepath)
                 audioname=functions.converter(filepath,filename)
                 print("uploaded")
-                
                 os.remove(filepath)
                 fname=functions.text_generation(audioname)
                 genfile_path=fname
+                os.remove(audioname)
                 start_index = fname.index("uploads\\") + len("uploads\\")
                 grnerate_fname = fname[start_index:]
                 # Add the uploaded file to the list
