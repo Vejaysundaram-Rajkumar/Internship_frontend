@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,redirect,url_for
+from flask import Flask, render_template,request,redirect,url_for,send_file
 import os
 from werkzeug.utils import secure_filename
 import functions
@@ -16,25 +16,30 @@ uploaded_files=[]
 genfile_path=''
 folder_path=''
 
-@app.route('/download')
-def download():
-    global genfile_path, folder_path
-    functions.save_file(genfile_path,folder_path)
-    return render_template("index.html",fav_icon=fav_icon,uploaded_files=uploaded_files,message="downloaded sucessfully")
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.route('/')
 def index():
+    uploaded_files=functions.read_from_file()
     return render_template("index.html",fav_icon=fav_icon,uploaded_files=uploaded_files)
 
 @app.route('/about')
 def about():
     return render_template("about.html",fav_icon=fav_icon)
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+@app.route('/download')
+def download():
+    file_path = request.args.get('file_path')
+    try:
+        return send_file(file_path, as_attachment=True)
+    except FileNotFoundError:
+        return "File not found", 404
+
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -63,16 +68,7 @@ def upload_file():
                 fname=functions.text_generation(audioname)
                 genfile_path=fname
                 os.remove(audioname)
-                start_index = fname.index("uploads\\") + len("uploads\\")
-                grnerate_fname = fname[start_index:]
-                # Add the uploaded file to the list
-                if(len(uploaded_files)==2):
-                    uploaded_files.pop(0)
-                uploaded_files.append({
-                    'filename': grnerate_fname,
-                    'filepath': genfile_path
-                })
-                functions.save_file(genfile_path,folder_path)
+                uploaded_files=functions.save_file(genfile_path,folder_path)
                 return render_template("index.html",message="successful",filepath=genfile_path,fav_icon=fav_icon, uploaded_files=uploaded_files)
 
         return render_template("index.html",message="none",fav_icon=fav_icon)

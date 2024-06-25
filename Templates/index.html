@@ -70,11 +70,6 @@
 
 
 
-    <div class="loader">
-        <div class="loader-content">
-        <div class="loader-text" id="loaderMessage">Uploading...</div>
-    </div>
-</div>
   
         <div id="errorMessage" class="error-message"></div>
 </div>
@@ -101,14 +96,22 @@
 </div>
 {% endif %}
 {% if uploaded_files %}
-<strong>Recent File Uploaded</strong>
-        {% for file in uploaded_files %}
-            <div class="file-card">
-                <h3>{{ file.filename }}</h3>
-                <p><a href="/download">Download</a></p>
-            </div>
-        {% endfor %}
-    {% endif %}
+<strong>Recent Files Uploaded</strong>
+    {% for file_path in uploaded_files %}
+        <div class="file-card">
+            <h3>{{ file_path.split('/')[-1] }}</h3>  <!-- Extract file name from path -->
+            <p><a href="{{ url_for('download', file_path=file_path) }}">Download</a></p>
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+<div class="loader">
+  <div class="loader-content">
+  <div class="loader-text" id="loaderMessage">Uploading...</div>
+</div>
+</div>
 <script>
 // hides and unhides the form for uploading
 
