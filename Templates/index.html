@@ -81,21 +81,24 @@
 <br>
 <br>
 {% if message == "successful" %}
-    <script>
-        message("transcription completed and saved sucessfully ");
-        hideLoader();
-  
-    </script>
+<div class="alert"  style="padding: 20px;background-color: #0cf13d; color: black;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Sucess!</strong> Your video is transcribed  and saved sucessfully.</div> 
+</div>
 {% elif message == "fail" %}
+<div class="alert"  style="padding: 20px;background-color: #ff0000; color: black;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Error!</strong> Some error occured while processing the video.</div> 
+</div>
   <script>
-      alert("Upload failed. Please try again.");
       hideLoader();
   </script>
 
 {% elif message == "downloaded sucessfully" %}
-  <script>
-      alert("Your Transcript is downloaded sucessfully.");
-  </script>
+<div class="alert"  style="padding: 20px;background-color: #0cf13d; color: black;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Sucess!</strong> Transcript is downloaded sucessfully!</div> 
+</div>
 {% endif %}
 {% if uploaded_files %}
 <strong>Recent File Uploaded</strong>
