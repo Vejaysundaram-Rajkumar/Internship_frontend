@@ -56,7 +56,7 @@ def save_file(gen, spc):
     dest_path = os.path.join(spc, base_name)
     if not os.path.exists(dest_path):
         shutil.copy(gen, dest_path)
-        print(f"Copied {gen} to {dest_path}")
+        #print(f"Copied {gen} to {dest_path}")
     else:
         # Subsequent copies, add _copy suffix
         i = 1
@@ -65,6 +65,6 @@ def save_file(gen, spc):
             new_path = os.path.join(spc, new_name)
             if not os.path.exists(new_path):
                 shutil.copy(gen, new_path)
-                print(f"Copied {gen} to {new_path}")
+                #print(f"Copied {gen} to {new_path}")
                 break
             i += 1
