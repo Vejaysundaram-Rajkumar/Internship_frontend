@@ -27,8 +27,8 @@ def evaluate_transcripts(file1_path, file2_path):
     return accuracy,wer
 
 # Example usage
-file1_path = 'D:/projects/Internship_frontend/extracted ad (1).txt'
-file2_path = 'D:/projects/Internship_frontend/Sample1transcript (1).txt'
+file1_path = 'D:/projects/Internship_frontend/tamilsample.txt'
+file2_path = 'D:/projects/Internship_frontend/tamilsampletranscript (2).txt'
 
 evaluation ,wer= evaluate_transcripts(file1_path, file2_path)
 print(f"Accuracy: {evaluation:.2f}%")
