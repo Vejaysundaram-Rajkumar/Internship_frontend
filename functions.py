@@ -20,7 +20,7 @@ def converter(path,filename):
 
 def text_generation(name):
     #Loading the model
-    model = whisper.load_model("base")
+    model = whisper.load_model("base.en")
 
     #loading the audio
     audio = whisper.load_audio(name)
