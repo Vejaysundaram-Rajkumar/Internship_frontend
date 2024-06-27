@@ -33,8 +33,8 @@ def preprocess_audio(audio_file):
     print(f"Preprocessed audio saved at: {preprocessed_file}")
 
 # # Example usage: Preprocessing a sample audio file
-# audio_file = "D:/projects/Internship_frontend/tamilsample.mp3"
-# preprocess_audio(audio_file)
+#audio_file = "D:/projects/Internship_frontend/tamilsample.mp3"
+#preprocess_audio(audio_file)
 
 def evaluate_transcripts(file1_path, file2_path):
     """
@@ -63,8 +63,8 @@ def evaluate_transcripts(file1_path, file2_path):
     return accuracy,wer
 
 # Example usage
-file1_path = 'D:/projects/Internship_frontend/tamilsample.txt'
-file2_path = 'D:/projects/Internship_frontend/preprocessed_audiotranscript.txt'
+file1_path = 'D:/projects/Internship_frontend/extracted ad (1).txt'
+file2_path = 'D:/projects/Internship_frontend/output_transcript3.txt'
 
 evaluation ,wer= evaluate_transcripts(file1_path, file2_path)
 print(f"Accuracy: {evaluation:.2f}%")

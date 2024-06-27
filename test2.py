@@ -8,7 +8,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 # or run on GPU with INT8
 model = WhisperModel(model_size, device="cuda", compute_type="int8_float16")
 # or run on CPU with INT8
-model = WhisperModel(model_size, device="cpu", compute_type="int8")
+#model = WhisperModel(model_size, device="cpu", compute_type="int8")
 
 segments, info = model.transcribe("D:/projects/Internship_frontend/preprocessed_audio.mp3", beam_size=5)
 
