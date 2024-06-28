@@ -1,40 +1,15 @@
-from faster_whisper import WhisperModel
-import os
+import torch
+from datasets import load_dataset
+from huggingface_hub import hf_hub_download
+from whisper import load_model, transcribe
 
-def main_func(audio_file):
-    def format_time(seconds):
-        """Convert seconds to SRT timestamp format."""
-        hours = int(seconds // 3600)
-        minutes = int((seconds % 3600) // 60)
-        seconds = int(seconds % 60)
-        milliseconds = int((seconds % 1) * 1000)
-        return f"{hours:02}:{minutes:02}:{seconds:02},{milliseconds:03}"
+distil_large_v2 = hf_hub_download(repo_id="distil-whisper/distil-large-v2", filename="original-model.bin")
+model = load_model(distil_large_v2)
 
-    def generate_srt_file(segments, output_file):
-        with open(output_file, 'w', encoding='utf-8') as f:
-            segment_number = 1
-            for segment in segments:
-                f.write(f"{segment_number}\n")
-                start_time = format_time(segment.start)
-                end_time = format_time(segment.end)
-                f.write(f"{start_time} --> {end_time}\n")
-                f.write(f"{segment.text}\n\n")
-                segment_number += 1
-        return output_file
+dataset = load_dataset("hf-internal-testing/librispeech_asr_dummy", "clean", split="validation")
+sample = dataset[0]["audio"]["array"]
+sample = torch.from_numpy(sample).float()
 
-    # Set environment variable to suppress OpenMP warning
-    os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+pred_out = transcribe(model, audio="D:/projects/Internship_frontend/uploads/tamilsample_audio.mp3")
 
-    # Initialize WhisperModel for transcription
-    model_size = "large-v2"
-    model = WhisperModel(model_size, device="cpu", compute_type="int8")
-
-    # Transcribe audio
-    segments, info = model.transcribe(audio_file)
-
-    filename = audio_file.split('.')[0] + "_transcript.srt"
-    filename = generate_srt_file(segments, filename)
-    return filename
-
-
-main_func("D:/projects/Internship_frontend/uploads/tamilsample_audio.mp3")
+print(pred_out["text"])

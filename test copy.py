@@ -1,13 +1,32 @@
-import torchaudio
-from transformers import AutoProcessor, SeamlessM4TModel
-processor = AutoProcessor.from_pretrained("facebook/hf-seamless-m4t-medium")
-model = SeamlessM4TModel.from_pretrained("facebook/hf-seamless-m4t-medium")
+import torch
+from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 
-# Read an audio file and resample to 16kHz:
-audio, orig_freq =  torchaudio.load("D:/projects/Internship_frontend/audio.mp3") # must be a 16 kHz waveform array
-audio_inputs = processor(audios=audio, return_tensors="pt")
 
-# from audio
-output_tokens = model.generate(audio_inputs, tgt_lang="eng", generate_speech=False)
-translated_text_from_audio = processor.decode(output_tokens[0].tolist()[0], skip_special_tokens=True)
-print(translated_text_from_audio)
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
+torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
+
+model_id = "washeed/audio-transcribe"
+
+model = AutoModelForSpeechSeq2Seq.from_pretrained(
+    model_id, torch_dtype=torch_dtype, low_cpu_mem_usage=True, use_safetensors=True
+)
+model.to(device)
+
+processor = AutoProcessor.from_pretrained(model_id)
+
+pipe = pipeline(
+    "automatic-speech-recognition",
+    model=model,
+    tokenizer=processor.tokenizer,
+    feature_extractor=processor.feature_extractor,
+    max_new_tokens=128,
+    chunk_length_s=30,
+    batch_size=16,
+    return_timestamps=True,
+    torch_dtype=torch_dtype,
+    device=device,
+)
+
+result = pipe("D:/projects/Internship_frontend/uploads/tamilsample_audio.mp3", generate_kwargs={"task": "transcribe"})
+print(result["text"])
+
