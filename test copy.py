@@ -4,8 +4,7 @@ processor = AutoProcessor.from_pretrained("facebook/hf-seamless-m4t-medium")
 model = SeamlessM4TModel.from_pretrained("facebook/hf-seamless-m4t-medium")
 
 # Read an audio file and resample to 16kHz:
-audio, orig_freq =  torchaudio.load("D:/projects/Internship_frontend/audio.mp3")
-audio =  torchaudio.functional.resample(audio, orig_freq=orig_freq, new_freq=16_000) # must be a 16 kHz waveform array
+audio, orig_freq =  torchaudio.load("D:/projects/Internship_frontend/audio.mp3") # must be a 16 kHz waveform array
 audio_inputs = processor(audios=audio, return_tensors="pt")
 
 # from audio

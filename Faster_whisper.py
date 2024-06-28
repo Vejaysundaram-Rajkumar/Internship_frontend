@@ -19,21 +19,19 @@ def generate_srt_file(segments, output_file):
             f.write(f"{start_time} --> {end_time}\n")
             f.write(f"{segment.text}\n\n")
             segment_number += 1
+    return output_file
 
-# Set environment variable to suppress OpenMP warning
-os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+def main_func(audio_file):
+    # Set environment variable to suppress OpenMP warning
+    os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
-# Initialize WhisperModel for transcription
-model_size = "medium"
-model = WhisperModel(model_size, device="cpu", compute_type="int8")
+    # Initialize WhisperModel for transcription
+    model_size = "medium"
+    model = WhisperModel(model_size, device="cpu", compute_type="int8")
 
-# Specify audio file path
-audio_file = "D:/projects/Internship_frontend/Sample1.mp3"
+    # Transcribe audio
+    segments, info = model.transcribe(audio_file)
 
-# Transcribe audio
-segments, info = model.transcribe(audio_file)
-
-# Generate and save SRT file
-output_srt_file = "output_transcript4.srt"
-generate_srt_file(segments, output_srt_file)
-print(f"SRT file '{output_srt_file}' generated successfully.")
+    filename=audio_file.split('.')[0]+"transcript.srt"
+    filename=generate_srt_file(segments, filename)
+    return filename
