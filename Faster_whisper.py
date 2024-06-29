@@ -1,5 +1,7 @@
 from faster_whisper import WhisperModel
 import os
+from pydub import AudioSegment
+import torch
 
 def main_func(audio_file):
     def format_time(seconds):
@@ -28,7 +30,11 @@ def main_func(audio_file):
     # Initialize WhisperModel for transcription
     model_size = "medium"
     model = WhisperModel(model_size, device="cpu", compute_type="int8")
+    torch.set_num_threads(os.cpu_count())
 
+    # Preprocess audio to 16kHz
+    audio = AudioSegment.from_file(audio_file)
+    audio = audio.set_frame_rate(16000)
     # Transcribe audio
     segments, info = model.transcribe(audio_file)
 
