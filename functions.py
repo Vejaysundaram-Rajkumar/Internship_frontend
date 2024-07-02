@@ -44,10 +44,11 @@ def text_generation(audio_file):
 
     # Set environment variable to suppress OpenMP warning
     os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+    # Path to the directory containing the model files
+    model_dir = "D:/projects/Internship_frontend/model"
 
-    # Initialize WhisperModel for transcription
-    model_size = "medium"
-    model = WhisperModel(model_size, device="cpu", compute_type="int8")
+    # Load the WhisperModel from local files
+    model = WhisperModel(model_dir, device="cpu", compute_type="int8")
     torch.set_num_threads(os.cpu_count())
 
     # Preprocess audio to 16kHz
