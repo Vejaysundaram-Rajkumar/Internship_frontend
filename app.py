@@ -69,6 +69,7 @@ def upload_file():
                 genfile_path=fname
                 os.remove(audioname)
                 if(translate):
+                    uploaded_files=functions.save_file(genfile_path,folder_path)
                     tran_path=Translate.translate_subtitles(genfile_path)
                     uploaded_files=functions.save_file(tran_path,folder_path)
                 else:
