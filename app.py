@@ -2,7 +2,7 @@ from flask import Flask, render_template,request,redirect,url_for,send_file
 import os
 from werkzeug.utils import secure_filename
 import functions
-
+import Translate
 UPLOAD_FOLDER = 'D:\\projects\\Internship_frontend\\uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov'}
 images=os.path.join('static','images')
@@ -53,9 +53,10 @@ def upload_file():
             print("hi2")
             file = request.files['file']
             folder_path = request.form['folderpath']
-
+            translate = request.form['translate'] == 'yes'
             if file.filename == '':
-                return redirect(request.url)
+                uploaded_files=functions.read_from_file()
+                return render_template("index.html",message="file error",fav_icon=fav_icon,uploaded_files=uploaded_files) 
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 filepath=os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -67,9 +68,15 @@ def upload_file():
                 fname=functions.text_generation(audioname)
                 genfile_path=fname
                 os.remove(audioname)
-                uploaded_files=functions.save_file(genfile_path,folder_path)
+                if(translate):
+                    tran_path=Translate.translate_subtitles(genfile_path)
+                    uploaded_files=functions.save_file(tran_path,folder_path)
+                else:
+                    uploaded_files=functions.save_file(genfile_path,folder_path)
                 return render_template("index.html",message="successful",filepath=genfile_path,fav_icon=fav_icon, uploaded_files=uploaded_files)
-
+            else:
+                uploaded_files=functions.read_from_file()
+                return render_template("index.html",message="file error",fav_icon=fav_icon)                
         return render_template("index.html",message="none",fav_icon=fav_icon)
     except Exception as e:
         print(e)
