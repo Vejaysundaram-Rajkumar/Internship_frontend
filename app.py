@@ -53,8 +53,7 @@ def upload_file():
             print("hi2")
             file = request.files['file']
             folder_path = request.form['folderpath']
-            # If the user does not select a file, the browser submits an
-            # empty file without a filename.
+
             if file.filename == '':
                 return redirect(request.url)
             if file and allowed_file(file.filename):
