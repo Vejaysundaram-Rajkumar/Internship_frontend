@@ -45,7 +45,7 @@ def text_generation(audio_file):
     # Set environment variable to suppress OpenMP warning
     os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
     # Path to the directory containing the model files
-    model_dir = "D:/projects/Internship_frontend/model"
+    model_dir = "D:/projects/Internship_frontend/models/transcription"
 
     # Load the WhisperModel from local files
     model = WhisperModel(model_dir, device="cpu", compute_type="int8")
