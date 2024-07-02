@@ -64,14 +64,16 @@
   <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
     <input type="file" id="myFile" name="file" accept=".mp4,.avi,.mov">
     
-   <strong> <label for="translate">Do you want to translate:</label></strong>
-        <input type="radio" id="yes" name="translate" value="yes" checked>
-        <label for="yes">Yes</label>
-        <input type="radio" id="no" name="translate" value="no">
-        <label for="no">No</label><br>
+
+  <strong><label for="option">What do you want to do?</label></strong>
+   <select name="option" id="options">
+       <option value="translate" selected>Translate</option>
+       <option value="transcribe">Transcribe</option>
+   </select>
+<br>
         <label for="path">Folder Path:</label>
     <input type="text" id="path" name="folderpath" placeholder="Enter folder path here">
-    <input type="submit" value="Transcribe" id="uploadButton" >
+    <input type="submit" value="START" id="uploadButton" >
   </form>
 
 
@@ -130,11 +132,7 @@ document.getElementById('getStartedButton').addEventListener('click', function()
       document.querySelector('.upload-form').style.display = 'block';
       this.style.display = 'none'; // Hide the "Get Started" button after showing the form
   });
-  $(document).ready(function(){
-    function message(data){
-    alert(data);
-    }
-  });
+  
 
 
 

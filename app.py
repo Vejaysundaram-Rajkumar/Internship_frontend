@@ -53,7 +53,8 @@ def upload_file():
             print("hi2")
             file = request.files['file']
             folder_path = request.form['folderpath']
-            translate = request.form['translate'] == 'yes'
+            option = request.form['option'] 
+            print(option)
             if file.filename == '':
                 uploaded_files=functions.read_from_file()
                 return render_template("index.html",message="file error",fav_icon=fav_icon,uploaded_files=uploaded_files) 
@@ -68,7 +69,7 @@ def upload_file():
                 fname=functions.text_generation(audioname)
                 genfile_path=fname
                 os.remove(audioname)
-                if(translate):
+                if(option):
                     tran_path=Translate.translate_subtitles(genfile_path)
                     uploaded_files=functions.save_file(tran_path,folder_path)
                     os.remove(genfile_path)
