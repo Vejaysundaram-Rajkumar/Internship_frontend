@@ -15,9 +15,6 @@ fav_icon = os.path.join(app.config['icons'], 'logo.png')
 uploaded_files=[]
 folder_path=''
 
-
-
-
 @app.route('/')
 def index():
     uploaded_files=main.read_from_file()
@@ -36,8 +33,6 @@ def download():
         status= "File error"
         message="File Not Found !!"
         return render_template('error.html', error_title=status, error_message=message,fav_icon=fav_icon), 404
-
-
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
