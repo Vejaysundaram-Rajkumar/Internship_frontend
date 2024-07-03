@@ -1,23 +1,16 @@
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #faa2bc, #f2366f);
-
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    
 }
-
 .error-container {
-    text-align: center;
-    padding: 20px;
+    margin: 200px 300px;
+    width:50%;
+    display:grid;
+    justify-content: center;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-    max-width: 400px;
-    width: 100%;
 }
 
 .error-title {
@@ -44,4 +37,24 @@ body {
 
 .back-to-home:hover {
     background-color: #0056b3;
+}
+
+/* css for logo */
+#header-img {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 10%;
+  
+  }
+  
+  .nav-item{
+    color: #000000;
+    font-weight: bold;
+  }
+
+  @media (max-width: 900px) {
+    .error-container {
+        margin: 30% 25%;
+  }
 }

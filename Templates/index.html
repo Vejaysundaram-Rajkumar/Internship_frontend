@@ -93,15 +93,10 @@
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
   <strong>Error!</strong> Some error occured while processing the video.</div> 
 </div>
-No file or unsupported file uploaded
   <script>
       hideLoader();
   </script>
-{% elif message == "file error" %}
-<div class="alert"  style="padding: 20px;background-color: #ff0000; color: black;">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Error!</strong>No file uploaded!!</div> 
-</div>
+
 {% elif message == "downloaded sucessfully" %}
 <div class="alert"  style="padding: 20px;background-color: #0cf13d; color: black;">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
@@ -112,7 +107,7 @@ No file or unsupported file uploaded
 <strong>Recent Files Uploaded</strong>
     {% for file_path in uploaded_files %}
         <div class="file-card">
-            <h3>{{ file_path.split('uploads')[-1] }}</h3>  <!-- Extract file name from path -->
+            <h3>{{ file_path.split('uploads')[-1] }}</h3>  
             <p><a href="{{ url_for('download', file_path=file_path) }}">Download</a></p>
         </div>
     {% endfor %}
@@ -134,7 +129,7 @@ document.getElementById('getStartedButton').addEventListener('click', function()
   });
 
   // loder logic start
-     document.getElementById('uploadButton').addEventListener('click', function(event) {
+     function showloader() {
       
       const loader = document.querySelector('.loader');
       loader.classList.remove('loader-hidden');
@@ -164,7 +159,7 @@ document.getElementById('getStartedButton').addEventListener('click', function()
 
       const messageInterval = setInterval(rotateMessages, 5000);
 
-    });
+    }
 
     
 
@@ -178,6 +173,50 @@ document.getElementById('getStartedButton').addEventListener('click', function()
       alert("Transcripted video downloaded sucessfully!!");
     }
    
+    // Form validation
+    function validateForm(event) {
+            const fileInput = document.getElementById('myFile');
+            const pathInput = document.getElementById('path');
+            const allowedExtensions = ['mp4', 'avi', 'mov', 'mp3', 'wav'];
+            const filePath = fileInput.value;
+            const folderPath = pathInput.value;
+
+            if (!filePath) {
+                alert("Please select a file.");
+                event.preventDefault();
+                return false;
+            }
+
+            const fileExtension = filePath.split('.').pop().toLowerCase();
+            if (!allowedExtensions.includes(fileExtension)) {
+                alert("Invalid file type. Only .mp4, .avi, .mov, .mp3, and .wav files are allowed.");
+                event.preventDefault();
+                return false;
+            }
+
+            if (!folderPath) {
+                alert("Please provide a folder path.");
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('uploadForm');
+            form.addEventListener('submit', function(event) {
+                if (validateForm(event)) {
+                    // If validation is successful, submit the form using JavaScript
+                    form.submit();
+                    showloader();
+                }
+            });
+        });
+
+
+
+
   </script>
 
 
