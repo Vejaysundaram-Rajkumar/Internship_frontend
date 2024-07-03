@@ -24,26 +24,38 @@ import time
 import app as ap
 
 
+
+result=[]
+
+
+# Main Function to read data from the file
+def read_from_file():
+    file_path= "uploads/list.txt"
+    try:
+        with open(file_path, 'r') as file:
+            return [line.strip() for line in file.readlines()]
+    except FileNotFoundError:
+        return []  # If the file doesn't exist, return an empty list
+
+
 def main_function(file,output_path,option):
-    filename = secure_filename(file.filename)
-    filepath=os.path.join(ap.app.config['UPLOAD_FOLDER'], filename)
-    print(filepath)
-    file.save(filepath)
 
     # Main function to extract audio from video file.
     def Extractor(path,filename):
-        cvt_vd = moviepy.editor.VideoFileClip(path)
-        ext_ad= cvt_vd.audio
-        output_directory = "D:/projects/Internship_frontend/uploads"
-        # Create the full output file path
-        name = os.path.join(output_directory, filename.split('.')[0] + "_audio.mp3")
-        ext_ad.write_audiofile(name)
-        cvt_vd.close()
-        ext_ad.close()
-        return name
+        try:
+            cvt_vd = moviepy.editor.VideoFileClip(path)
+            ext_ad= cvt_vd.audio
+            output_directory = "D:/projects/Internship_frontend/uploads"
+            # Create the full output file path
+            name = os.path.join(output_directory, filename.split('.')[0] + "_audio.mp3")
+            ext_ad.write_audiofile(name)
+            cvt_vd.close()
+            ext_ad.close()
+            return name
+        except Exception as e:
+            return e
 
-
-    #Main function to transcript the audio file.
+    # Main function to transcript the audio file.
     def text_generation(audio_file):
     
         def format_time(seconds):
@@ -105,14 +117,6 @@ def main_function(file,output_path,option):
                 i += 1
         return list_
     
-    # Main Function to read data from the file
-    def read_from_file():
-        file_path= "uploads/list.txt"
-        try:
-            with open(file_path, 'r') as file:
-                return [line.strip() for line in file.readlines()]
-        except FileNotFoundError:
-            return []  # If the file doesn't exist, return an empty list
     
     # Main Function to manage_file to log correctly.
     def manage_file(new_line):
@@ -187,3 +191,48 @@ def main_function(file,output_path,option):
         #print(f"Translation complete. Tamil subtitles saved to: {output_srt_file}")
         return output_srt_file
 
+
+
+    # Function STARTS HERE:
+    try:
+        
+        filename = secure_filename(file.filename)
+        filepath=os.path.join(ap.app.config['UPLOAD_FOLDER'], filename)
+        print(filepath)
+        file.save(filepath)
+        # Video file is saved in the uploads and the video is sent for audio extraction.
+        audioname=Extractor(filepath,filename)
+        # After audio extraction,the video file is deleted.
+        os.remove(filepath)
+        # transcription is done here sending the audio file.
+        transcript_path=text_generation(audioname)
+        # now removing the audio file.
+        os.remove(audioname)
+
+        try:
+            global result
+            if(option=="transcribe"):
+                uploaded_files=save_file(transcript_path,output_path)
+                message="transcribed"
+                result.append(message)
+                result.append(transcript_path)
+                result.append(uploaded_files)
+                return result
+            else:
+                tran_path=translate_subtitles(transcript_path)
+                uploaded_files=save_file(tran_path,output_path)
+                # removing the transcript file or deleting it.
+                os.remove(transcript_path)
+                message="translated"
+                result.append(message)
+                result.append(transcript_path)
+                result.append(uploaded_files)
+                return result
+
+        except Exception as e:
+            result=[e]
+            return result
+
+
+    except Exception as e:
+        return e

@@ -83,26 +83,29 @@
 </div>
 <br>
 <br>
-{% if message == "successful" %}
-<div class="alert"  style="padding: 20px;background-color: #0cf13d; color: black;">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Sucess!</strong> Your video is transcribed  and saved sucessfully.</div> 
+<div id="messageContainer">
+  {% if message == "transcribed" %}
+  <div class="alert success">
+      <span class="closebtn " onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Success!</strong> Your video is transcribed and saved successfully.
+  </div>
+  {% elif message == "fail" %}
+  <div class="alert error">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Error!</strong> Some error occurred while processing the video.
+  </div>
+  {% elif error_title == "patherror" %}
+  <div class="alert error">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Error!!</strong> Provide a correct path to save your file.
+  </div>
+  {% elif message == "translated" %}
+  <div class="alert success">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Success!</strong> Transcript is downloaded successfully!
+  </div>
+  {% endif %}
 </div>
-{% elif message == "fail" %}
-<div class="alert"  style="padding: 20px;background-color: #ff0000; color: black;">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Error!</strong> Some error occured while processing the video.</div> 
-</div>
-  <script>
-      hideLoader();
-  </script>
-
-{% elif message == "downloaded sucessfully" %}
-<div class="alert"  style="padding: 20px;background-color: #0cf13d; color: black;">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Sucess!</strong> Transcript is downloaded sucessfully!</div> 
-</div>
-{% endif %}
 {% if uploaded_files %}
 <strong>Recent Files Uploaded</strong>
     {% for file_path in uploaded_files %}
