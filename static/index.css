@@ -233,17 +233,3 @@ button {
 }
 
 /* message and info boxes css */
-.alert {
-  padding: 20px;
-  color: black;
-  background-color: white;
-  margin-bottom: 15px;
-}
-
-.success {
-  background-color: #0cf13d;
-}
-
-.error {
-  background-color: #ff0000;
-}

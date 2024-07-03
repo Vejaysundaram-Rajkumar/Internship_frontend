@@ -85,22 +85,22 @@
 <br>
 <div id="messageContainer">
   {% if message == "transcribed" %}
-  <div class="alert success">
+  <div class="alert success" style="background-color:green">
       <span class="closebtn " onclick="this.parentElement.style.display='none';">&times;</span> 
       <strong>Success!</strong> Your video is transcribed and saved successfully.
   </div>
   {% elif message == "fail" %}
-  <div class="alert error">
+  <div class="alert error" style="background-color:red">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
       <strong>Error!</strong> Some error occurred while processing the video.
   </div>
   {% elif error_title == "patherror" %}
-  <div class="alert error">
+  <div class="alert error" style="background-color:red">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
       <strong>Error!!</strong> Provide a correct path to save your file.
   </div>
   {% elif message == "translated" %}
-  <div class="alert success">
+  <div class="alert success" style="background-color:green">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
       <strong>Success!</strong> Transcript is downloaded successfully!
   </div>
