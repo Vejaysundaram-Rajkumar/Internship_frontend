@@ -1,16 +1,34 @@
+# ALL IMPORTS REQUIRED ARE HERE.
+# for Video to audio converter.
 import moviepy.editor 
+# for os based CRUD
 import os
+# for copying the file to another specified directory.
 import shutil
+# used for protection form unwanted and spam files.
+from werkzeug.utils import secure_filename
+
+# modle requirement imports.
 from faster_whisper import WhisperModel
+from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+
+# Audio preprocessor import 
 from pydub import AudioSegment
 import torch
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+
+# for easy .srt formating operations.
 import srt
+# for calcualting the elasped time.
 import time
+# importing the app.py here.
+import app as ap
 
 
-
-def main_function(video_file,output_path,option):
+def main_function(file,output_path,option):
+    filename = secure_filename(file.filename)
+    filepath=os.path.join(ap.app.config['UPLOAD_FOLDER'], filename)
+    print(filepath)
+    file.save(filepath)
 
     # Main function to extract audio from video file.
     def Extractor(path,filename):

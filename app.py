@@ -33,7 +33,9 @@ def download():
     try:
         return send_file(file_path, as_attachment=True)
     except FileNotFoundError:
-        return "File not found", 404
+        status= "File error"
+        message="File Not Found !!"
+        return render_template('error.html', error_title=status, error_message=message,fav_icon=fav_icon), 404
 
 
 
