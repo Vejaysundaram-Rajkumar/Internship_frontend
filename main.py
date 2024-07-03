@@ -38,7 +38,7 @@ def read_from_file():
         return []  # If the file doesn't exist, return an empty list
 
 
-def main_function(file,output_path,option):
+def main_function(file,output_path,option): 
 
     # Main function to extract audio from video file.
     def Extractor(path,filename):
