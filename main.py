@@ -81,7 +81,7 @@ def main_function(file,output_path,option):
         # Set environment variable to suppress OpenMP warning
         os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
         # Path to the directory containing the model files
-        model_dir = "D:/projects/Internship_frontend/models/transcription"
+        model_dir = "large-v3"
         use_cuda = torch.cuda.is_available()
         if(use_cuda):
             # Load the WhisperModel from local files
