@@ -82,11 +82,15 @@ def main_function(file,output_path,option):
         os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
         # Path to the directory containing the model files
         model_dir = "D:/projects/Internship_frontend/models/transcription"
-
-        # Load the WhisperModel from local files
-        model = WhisperModel(model_dir, device="cpu", compute_type="int8")
-        torch.set_num_threads(os.cpu_count())
-
+        use_cuda = torch.cuda.is_available()
+        if(use_cuda):
+            # Load the WhisperModel from local files
+            model = WhisperModel(model_dir, device="cuda", compute_type="int8")
+            torch.set_num_threads(os.cpu_count())
+        else:
+            # Load the WhisperModel from local files
+            model = WhisperModel(model_dir, device="cpu", compute_type="int8")
+            torch.set_num_threads(os.cpu_count())
         # Preprocess audio to 16kHz
         audio = AudioSegment.from_file(audio_file)
         audio = audio.set_frame_rate(16000)
