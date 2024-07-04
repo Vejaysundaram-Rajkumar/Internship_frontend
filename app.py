@@ -1,13 +1,18 @@
 from flask import Flask, render_template,request,redirect,url_for,send_file
 import os
 from werkzeug.utils import secure_filename
+import webview
 
 import main
+
 
 UPLOAD_FOLDER = 'D:/projects/Internship_frontend/uploads'
 images=os.path.join('static','images')
 upload=os.path.join('uploads')
+
 app = Flask(__name__)
+window=webview.create_window("test!",app)
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['icons'] = images
 fav_icon = os.path.join(app.config['icons'], 'logo.png')
@@ -70,6 +75,6 @@ def upload_file():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,host="0.0.0.0")
+    webview.start()
 
 
