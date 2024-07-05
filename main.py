@@ -47,7 +47,7 @@ def main_function(file,output_path,option):
             ext_ad= cvt_vd.audio
             output_directory = "D:/projects/Internship_frontend/uploads"
             # Create the full output file path
-            name = os.path.join(output_directory, filename.split('.')[0] + "_audio.mp3")
+            name = os.path.join(output_directory, filename.split('.')[0] + "_.mp3")
             ext_ad.write_audiofile(name)
             cvt_vd.close()
             ext_ad.close()
@@ -81,7 +81,7 @@ def main_function(file,output_path,option):
         # Set environment variable to suppress OpenMP warning
         os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
         # Path to the directory containing the model files
-        model_dir = "D:/projects/Internship_frontend/models/transcription_large_v3"
+        model_dir = "D:/projects/Internship_frontend/models/transcription"
         use_cuda = torch.cuda.is_available()
         if(use_cuda):
             # Load the WhisperModel from local files
@@ -97,7 +97,7 @@ def main_function(file,output_path,option):
         # Transcribe audio
         segments, info = model.transcribe(audio_file)
 
-        filename = audio_file.split('.')[0] + "_transcript.srt"
+        filename = audio_file.split('.')[0] + "medium.srt"
         filename = generate_srt_file(segments, filename)
         return filename
 

@@ -11,8 +11,6 @@ images=os.path.join('static','images')
 upload=os.path.join('uploads')
 
 app = Flask(__name__)
-window=webview.create_window("test!",app)
-
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['icons'] = images
 fav_icon = os.path.join(app.config['icons'], 'logo.png')
@@ -75,6 +73,5 @@ def upload_file():
 
 
 if __name__ == '__main__':
-    webview.start()
-
+    app.run(debug=True)
 
