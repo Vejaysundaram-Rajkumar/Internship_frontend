@@ -185,7 +185,8 @@ button {
 }
 /* css for card */
 .file-card {
-  width: 40%;
+  width: 50%;
+  word-wrap: break-word;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
@@ -232,4 +233,9 @@ button {
   color: black;
 }
 
-/* message and info boxes css */
+@media (max-width: 600px) {
+  .file-card {
+    width: 100%;
+    word-wrap: break-word;
+  }
+}
