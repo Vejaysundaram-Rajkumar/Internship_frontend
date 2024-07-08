@@ -153,7 +153,7 @@ def main_function(file,output_path,option):
     def translate_subtitles(input_srt_file):
 
         # Load model and tokenizer for translate model
-        translate_path = "D:/projects/Internship_frontend/models/translation_mbart"
+        translate_path = "D:/projects/Internship_frontend/models/translation_nllb"
         model = MBartForConditionalGeneration.from_pretrained(translate_path)
         tokenizer = MBart50TokenizerFast.from_pretrained(translate_path)
 
