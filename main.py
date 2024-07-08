@@ -25,7 +25,7 @@ import app as ap
 
 
 
-result=[]
+
 
 
 # Main Function to read data from the file
@@ -214,7 +214,7 @@ def main_function(file,output_path,option):
         os.remove(audioname)
 
         try:
-            global result
+            result=[]
             if(option=="transcribe"):
                 uploaded_files=save_file(transcript_path,output_path)
                 message="transcribed"
