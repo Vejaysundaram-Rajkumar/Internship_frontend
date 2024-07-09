@@ -67,18 +67,16 @@
 
   <strong><label for="option">What do you want to do?</label></strong>
    <select name="option" id="options">
-       <option value="translate" selected>Translate</option>
+       <option value="translate" selected>Transcribe and Translate</option>
        <option value="transcribe">Transcribe</option>
    </select>
 <br>
-        <label for="path">Folder Path:</label>
-    <input type="text" id="path" name="folderpath" placeholder="Enter folder path here">
-    <input type="submit" value="START" id="uploadButton" >
-  </form>
-
-
-
-  
+<strong><label for="option">Language you want to translate to:</label></strong>
+<select name="option" id="options">
+    <option value="translate" selected>Tamil</option>
+    <option value="transcribe">English</option>
+</select>
+  </form>  
         <div id="errorMessage" class="error-message"></div>
 </div>
 <br>
