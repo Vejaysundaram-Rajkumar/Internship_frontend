@@ -2,6 +2,41 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #faa2bc, #f2366f);
 }
+
+/* css for logo */
+#header-img {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  left: 10%;
+
+}
+
+.nav-item{
+  color: #000000;
+  font-weight: bold;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  
+  border-radius: 10px;
+}
+
+.main-heading {
+  font-size: 3em;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  font-size: 1.2em;
+  color: #fff;
+  line-height: 1.6;
+}
+
   /* css for the form which is for uploading the video file */
   .upload-form {
     max-width: 600px;
@@ -79,7 +114,35 @@ body {
 }
   /* end of css for the form  */
   
+/* css for card */
+.file-card {
+  width: 50%;
+  word-wrap: break-word;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  right: inherit;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
+.file-card h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.file-card a {
+  text-decoration: none;
+  color: #007bff; 
+  font-weight: bold;
+}
+
+.file-card a:hover {
+  text-decoration: underline;
+}
 
 .download-button {
   display: inline-block;
@@ -151,68 +214,7 @@ body {
 }
 
 
-.container {
-  text-align: center;
-  padding: 20px;
-  
-  border-radius: 10px;
-}
 
-.main-heading {
-  font-size: 3em;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
-}
-
-.intro-text {
-  font-size: 1.2em;
-  color: #fff;
-  line-height: 1.6;
-}
-
-/* css for logo */
-#header-img {
-  width: 50%;
-  height: 50%;
-  position: relative;
-  left: 10%;
-
-}
-
-.nav-item{
-  color: #000000;
-  font-weight: bold;
-}
-/* css for card */
-.file-card {
-  width: 50%;
-  word-wrap: break-word;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  position: relative;
-  right: inherit;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.file-card h3 {
-  margin-top: 0;
-  font-size: 18px;
-  color: #333;
-}
-
-.file-card a {
-  text-decoration: none;
-  color: #007bff; 
-  font-weight: bold;
-}
-
-.file-card a:hover {
-  text-decoration: underline;
-}
 .alert {
   padding: 20px;
   background-color: #0cf13d;
