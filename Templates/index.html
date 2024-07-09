@@ -64,7 +64,7 @@
         <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
             <input type="file" id="myFile" name="file" accept=".mp4,.avi,.mov">
             
-            <strong><label for="option">What do you want to do?</label></strong>
+            <strong><label for="options">What do you want to do?</label></strong>
             <select name="option" id="options">
                 <option value="translate">Transcribe and Translate</option>
                 <option value="transcribe">Transcribe</option>
@@ -78,7 +78,8 @@
                     <option value="en_XX">English</option>
                 </select>
             </div>
-            <input type="submit" value="START" id="uploadButton">
+            <br>
+            <input type="submit" value="START GENERATING" id="uploadButton">
         </form>
 
         <div id="errorMessage" class="error-message"></div>
