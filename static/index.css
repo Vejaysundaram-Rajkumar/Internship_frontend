@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background:linear-gradient(to right, #4ca8f3, #4ca8f3);
+    background:linear-gradient(to right, #5ce4f3, #1566e9);
 }
 
 /* css for logo */
@@ -35,19 +35,20 @@ body {
 
 .upload-form {
   max-width: 600px;
+  padding: 10px;
   height:fit-content;
   justify-content: center;
   margin: 0 auto;
   color: #000000;
-  border-radius: 15px;
-  border: 2px solid #000000;
-  background-color: rgba(204, 202, 202, 0.749);
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .upload-form:hover {
   transform: scale(1.1);
+  background-color: #ffffff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
   
@@ -112,23 +113,26 @@ body {
   }
 
   
-  .upload-form {
-    display: none;
-}
 /* Styling for the container holding recent files */
 .recent-files {
-  background-color: #3498db; /* Default background color */
-  padding: 20px; /* Padding around the content */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-  overflow: hidden; /* Hide overflow for children animations */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  max-width: 600px;
+  padding: 10px;
+  height:fit-content;
+  justify-content: center;
+  margin: 0 auto;
+  color: #000000;
+  border-radius: 15px;
+  border: 2px solid #000000;
+  background-color: rgba(204, 202, 202, 0.749);
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Hover effect for recent files */
 .recent-files:hover {
-  background-color: #2980b9; /* Darker background color on hover */
-  transform: scale(1.05); /* Slightly scale up on hover */
+  background-color: #f48383; /* Darker background color on hover */
+  transform: scale(1.05); 
+  
 }
 
 /* Styling for the header of recent files */
@@ -209,8 +213,8 @@ body {
 }
 
 .upload-form, .recent-files {
-  width: calc(40% - 10px); /* Adjust width as needed */
-  padding: 10px;
+  width: calc(40% ); /* Adjust width as needed */
+
   box-sizing: border-box;
 }
 
