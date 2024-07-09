@@ -125,7 +125,7 @@ def main_function(file,output_path,option):
     # Main Function to manage_file to log correctly.
     def manage_file(new_line):
         file_path = "uploads/list.txt"
-        
+        flag=0
         # Function to write data to the file
         def write_to_file(lines):
             with open(file_path, 'w') as file:
@@ -137,13 +137,16 @@ def main_function(file,output_path,option):
         # Read existing lines from the file
         lines = read_from_file()
         
+        if(new_line in lines):
+            flag=1
         # Add the new line to the buffer
         lines.append(new_line)
         
         # If the buffer exceeds 2 lines, remove the oldest line
         if len(lines) > 2:
             path=lines.pop(0)
-            os.remove(path)
+            if(flag==0):
+                os.remove(path)
         # Write the updated buffer to the file
         write_to_file(lines)
         
