@@ -17,7 +17,7 @@
 <link rel="icon" type="image/x-icon" href="{{fav_icon}}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-secondary bg-warning">
+    <nav class="navbar navbar-expand-sm  navbar-light" style="background-color: #ffffff;">
         <!-- Navbar content -->
         <a class="navbar-brand  fw-bold" href="/">
             
@@ -46,44 +46,55 @@
        </ul>
             
     </nav>
-    <br>
-    <br>
     <div class="container">
       <h1 class="main-heading">Transform Your Videos with Perfect Subtitles!</h1>
       <p class="intro-text">
           Creating subtitles is as easy as a few clicks.Upload your video and let us do the rest. Your  personalized file will be ready in moments!
       </p>
       <button class="btn btn-dark" id="getStartedButton">Get Started</button>
-  </div>  
-    <br>
-    <br>
-    <div class="upload-form">
-        <h2>Upload Video File</h2>
-        <p>Click on the "Choose File" button to upload a video file for processing:</p>
-        
-        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="file" id="myFile" name="file" accept=".mp4,.avi,.mov">
-            
-            <strong><label for="options">What do you want to do?</label></strong>
-            <select name="option" id="options">
-                <option value="translate">Transcribe and Translate</option>
-                <option value="transcribe">Transcribe</option>
-            </select>
-            
-            <!-- Hidden by default using the "hidden" class -->
-            <div id="translateOptions" class="hidden">
-                <strong><label for="translateTo">Translate to:</label></strong>
-                <select name="translateTo" id="translateTo">
-                    <option value="ta_IN">Tamil</option>
-                    <option value="en_XX">English</option>
-                </select>
-            </div>
-            <br>
-            <input type="submit" value="START GENERATING" id="uploadButton">
-        </form>
+  </div>
+    <div class="container2">
+      <div class="upload-form">
+          <h2>Upload Video File</h2>
+          <p>Click on the "Choose File" button to upload a video file for processing:</p>
+          
+          <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+              <input type="file" id="myFile" name="file" accept=".mp4,.avi,.mov">
+              
+              <strong><label for="options">What do you want to do?</label></strong>
+              <select name="option" id="options">
+                  <option value="translate">Transcribe and Translate</option>
+                  <option value="transcribe">Transcribe</option>
+              </select>
+              
+              <!-- Hidden by default using the "hidden" class -->
+              <div id="translateOptions" class="hidden">
+                  <strong><label for="translateTo">Translate to:</label></strong>
+                  <select name="translateTo" id="translateTo">
+                      <option value="ta_IN">Tamil</option>
+                      <option value="en_XX">English</option>
+                  </select>
+              </div>
+              <br>
+              <input type="submit" value="START GENERATING" id="uploadButton">
+          </form>
+  
+          <div id="errorMessage" class="error-message"></div>
+      </div>
+      <br>
 
-        <div id="errorMessage" class="error-message"></div>
-    </div>
+      <div class="recent-files">
+          {% if uploaded_files %}
+          <strong>Recent Files Uploaded</strong>
+          {% for file_path in uploaded_files %}
+          <div class="file-card">
+              <h3>{{ file_path.split('uploads')[-1] }}</h3>  
+              <p><a href="{{ url_for('download', file_path=file_path) }}">Download</a></p>
+          </div>
+          {% endfor %}
+          {% endif %}
+      </div>
+  </div>
 <br>
 <br>
 <div id="messageContainer">
@@ -109,15 +120,6 @@
   </div>
   {% endif %}
 </div>
-{% if uploaded_files %}
-<strong>Recent Files Uploaded</strong>
-    {% for file_path in uploaded_files %}
-        <div class="file-card">
-            <h3>{{ file_path.split('uploads')[-1] }}</h3>  
-            <p><a href="{{ url_for('download', file_path=file_path) }}">Download</a></p>
-        </div>
-    {% endfor %}
-{% endif %}
 
 
 

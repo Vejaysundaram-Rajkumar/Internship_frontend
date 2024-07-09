@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #faa2bc, #f2366f);
+    background:linear-gradient(to right, #4ca8f3, #4ca8f3);
 }
 
 /* css for logo */
@@ -12,42 +12,45 @@ body {
 
 }
 
-.nav-item{
-  color: #000000;
-  font-weight: bold;
-}
+
 
 .container {
   text-align: center;
-  padding: 20px;
-  
+  padding: 20px;  
   border-radius: 10px;
 }
 
 .main-heading {
   font-size: 3em;
-  color: #ffffff;
+  color: #51535e;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
 }
 
 .intro-text {
   font-size: 1.2em;
-  color: #fff;
+  color: #433434;
   line-height: 1.6;
 }
 
-  /* css for the form which is for uploading the video file */
-  .upload-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    color:#000000;
-    border-radius: 8px;
-    border: 4px solid;
-    border-color: #000000;
-    box-shadow: 0 0 10px rgba(253, 240, 0, 0.1); 
-  }
+.upload-form {
+  max-width: 600px;
+  height:fit-content;
+  justify-content: center;
+  margin: 0 auto;
+  color: #000000;
+  border-radius: 15px;
+  border: 2px solid #000000;
+  background-color: rgba(204, 202, 202, 0.749);
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-form:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+  
 
   .upload-form h2 {
     text-align: center;
@@ -57,7 +60,7 @@ body {
 
   .upload-form p {
     text-align: center;
-    color: #000000;  font-weight: bold;
+    color: #000000;  
   }
 
   .upload-form input[type="file"] {
@@ -112,37 +115,69 @@ body {
   .upload-form {
     display: none;
 }
-  /* end of css for the form  */
-  
-/* css for card */
+/* Styling for the container holding recent files */
+.recent-files {
+  background-color: #3498db; /* Default background color */
+  padding: 20px; /* Padding around the content */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  overflow: hidden; /* Hide overflow for children animations */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover effect for recent files */
+.recent-files:hover {
+  background-color: #2980b9; /* Darker background color on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Styling for the header of recent files */
+.recent-files strong {
+  display: block;
+  font-size: 1.5em; /* Larger font size for emphasis */
+  color: #fff; /* Light text color */
+  margin-bottom: 20px; /* Space below the header */
+}
+
+/* Styling for each file card */
 .file-card {
-  width: 50%;
-  word-wrap: break-word;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  position: relative;
-  right: inherit;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for each card */
+  padding: 15px; /* Padding inside the card */
+  margin-bottom: 20px; /* Spacing between cards */
+  border: 1px solid #ddd; /* Light border around each card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  position: relative; /* Positioning context for pseudo-element */
+  transition: transform 0.3s ease; /* Smooth transition for transform */
 }
 
+/* Blow-up animation on card hover */
+.file-card:hover {
+  transform: scale(1.03); /* Slightly scale up on hover */
+}
+
+/* File name styling */
 .file-card h3 {
-  margin-top: 0;
-  font-size: 18px;
-  color: #333;
+  font-size: 1.2em; /* Font size for file names */
+  color: #333; /* Dark text color */
+  margin-bottom: 10px; /* Space below the file name */
+  text-align: center; /* Center-align file names */
 }
 
+/* Download link styling */
 .file-card a {
-  text-decoration: none;
-  color: #007bff; 
-  font-weight: bold;
+  display: block;
+  text-align: center; /* Center-align download links */
+  color: #3498db; /* Link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
+/* Link hover effect */
 .file-card a:hover {
-  text-decoration: underline;
+  color: #2980b9; /* Darker link color on hover */
 }
+
 
 .download-button {
   display: inline-block;
@@ -168,7 +203,26 @@ body {
 .download-link:hover {
   text-decoration: underline; 
 }
+.container2 {
+  display: flex;
+  justify-content: space-between;
+}
 
+.upload-form, .recent-files {
+  width: calc(40% - 10px); /* Adjust width as needed */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .container2 {
+      flex-direction: column;
+  }
+
+  .upload-form, .recent-files {
+      width: 100%;
+  }
+}
 /* loader css */
 .loader {
   position: fixed;
