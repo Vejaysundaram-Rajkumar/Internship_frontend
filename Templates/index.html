@@ -65,21 +65,33 @@
     <input type="file" id="myFile" name="file" accept=".mp4,.avi,.mov">
     
 
-  <strong><label for="option">What do you want to do?</label></strong>
-   <select name="option" id="options">
-       <option value="translate" selected>Translate</option>
-       <option value="transcribe">Transcribe</option>
+  <strong><label for="sourcelanguage">Select the Source language:</label></strong>
+   <select name="option" id="sourcelanguage" >
+       <option value="Tamil" >Tamil</option>
+       <option value="English">English</option>
+       <option value="telegu" >Telegu</option>
+       <option value="kanada">Kanada</option>
    </select>
 <br>
-        <label for="path">Folder Path:</label>
-    <input type="text" id="path" name="folderpath" placeholder="Enter folder path here">
+<strong><label for="operation">Select Operation:</label></strong><br>
+<input type="radio" id="transcribe" name="operation" value="transcribe" onclick="toggleTranslateOptions()" checked>
+<label for="transcribe">Transcribe</label><br>
+<input type="radio" id="translate" name="operation" value="translate" onclick="toggleTranslateOptions()">
+<label for="translate">Translate</label>
+<br>
+<div id="translateOptions" class="hidden">
+<strong><label for="targetlanguage">Translate to:</label></strong>
+
+<select name="option" id="targetlanguage" >
+    <option value="Tamil" >Tamil</option>   
+    <option value="English">English</option>
+    <option value="telegu" >Telegu</option>
+    <option value="kanada">Kanada</option>
+</select>
+</div>
     <input type="submit" value="START" id="uploadButton" >
-  </form>
-
-
-
-  
-        <div id="errorMessage" class="error-message"></div>
+  </form>  
+    <div id="errorMessage" class="error-message"></div>
 </div>
 <br>
 <br>
@@ -124,6 +136,56 @@
 </div>
 </div>
 <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      function toggleTranslateOptions() {
+        var translateRadio = document.getElementById('translate');
+        var translateOptions = document.getElementById('translateOptions');
+        if (translateRadio.checked) {
+          translateOptions.classList.remove('hidden');
+          updateTargetLanguageOptions();
+        } else {
+          translateOptions.classList.add('hidden');
+        }
+      }
+
+      function updateTargetLanguageOptions() {
+        var sourceLanguage = document.getElementById('sourcelanguage').value;
+        var targetLanguage = document.getElementById('targetlanguage');
+        
+        // Clear existing options
+        targetLanguage.innerHTML = '';
+
+        // List of all possible target languages
+        var languages = ['Tamil', 'English', 'Telugu', 'Kannada'];
+
+        // Add options excluding the source language
+        languages.forEach(function (language) {
+          if (language !== sourceLanguage) {
+            var option = document.createElement('option');
+            option.value = language;
+            option.textContent = language;
+            targetLanguage.appendChild(option);
+          }
+        });
+      }
+
+      var transcribeRadio = document.getElementById('transcribe');
+      var translateRadio = document.getElementById('translate');
+      var sourceLanguageSelect = document.getElementById('sourceLanguage');
+
+      transcribeRadio.addEventListener('click', toggleTranslateOptions);
+      translateRadio.addEventListener('click', toggleTranslateOptions);
+      sourceLanguageSelect.addEventListener('change', function() {
+        if (translateRadio.checked) {
+          updateTargetLanguageOptions();
+        }
+      });
+
+      // Initial call to set the correct state on page load
+      toggleTranslateOptions();
+    });
+
 // hides and unhides the form for uploading
 
 document.getElementById('getStartedButton').addEventListener('click', function() {

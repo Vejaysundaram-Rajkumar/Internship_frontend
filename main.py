@@ -151,7 +151,7 @@ def main_function(file,output_path,option):
     
     # Main function to translate .srt file.
     def translate_subtitles(input_srt_file):
-
+   
         # Load model and tokenizer for translate model
         translate_path = "D:/projects/Internship_frontend/models/translation_nllb"
         model = MBartForConditionalGeneration.from_pretrained(translate_path)

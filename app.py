@@ -41,8 +41,8 @@ def download():
 def upload_file():
     try:
         global folder_path
-        if request.method == 'POST':
-            
+        if request.method == 'POST':      
+                  
             # Getting the inputs from the frontend.
             file = request.files['file']
             folder_path = request.form['folderpath']

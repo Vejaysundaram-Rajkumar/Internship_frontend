@@ -37,7 +37,20 @@ body {
     color: #333; 
     font-size: 16px;
   }
-
+  .upload-form select {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 2px solid #3498db; 
+    border-radius: 5px;
+    background-color: #ecf0f1; 
+    color: #333; 
+    font-size: 16px;
+  }
+  .hidden {
+    display: none;
+  }
   .upload-form input[type="submit"] {
     background-color: #3498db; 
     color: #fff; 
@@ -48,7 +61,6 @@ body {
     font-size: 18px;
     transition: background-color 0.3s ease;
   }
-
   .upload-form input[type="submit"]:hover {
     background-color: #2980b9; 
   }
