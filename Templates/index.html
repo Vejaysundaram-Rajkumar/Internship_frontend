@@ -74,13 +74,10 @@
             <div id="translateOptions" class="hidden">
                 <strong><label for="translateTo">Translate to:</label></strong>
                 <select name="translateTo" id="translateTo">
-                    <option value="tamil">Tamil</option>
-                    <option value="english">English</option>
+                    <option value="ta_IN">Tamil</option>
+                    <option value="en_XX">English</option>
                 </select>
             </div>
-
-            <label for="path">Folder Path:</label>
-            <input type="text" id="path" name="folderpath" placeholder="Enter folder path here">
             <input type="submit" value="START" id="uploadButton">
         </form>
 
@@ -204,44 +201,13 @@ document.getElementById('getStartedButton').addEventListener('click', function()
       alert("Transcripted video downloaded sucessfully!!");
     }
    
-    // Form validation
-    function validateForm(event) {
-            const fileInput = document.getElementById('myFile');
-            const pathInput = document.getElementById('path');
-            const allowedExtensions = ['mp4', 'avi', 'mov', 'mp3', 'wav'];
-            const filePath = fileInput.value;
-            const folderPath = pathInput.value;
-
-            if (!filePath) {
-                alert("Please select a file.");
-                event.preventDefault();
-                return false;
-            }
-
-            const fileExtension = filePath.split('.').pop().toLowerCase();
-            if (!allowedExtensions.includes(fileExtension)) {
-                alert("Invalid file type. Only .mp4, .avi, .mov, .mp3, and .wav files are allowed.");
-                event.preventDefault();
-                return false;
-            }
-
-            if (!folderPath) {
-                alert("Please provide a folder path.");
-                event.preventDefault();
-                return false;
-            }
-
-            return true;
-        }
-
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.getElementById('uploadForm');
             form.addEventListener('submit', function(event) {
-                if (validateForm(event)) {
-                    // If validation is successful, submit the form using JavaScript
-                    form.submit();
-                    showloader();
-                }
+
+            form.submit();
+            showloader();
+                
             });
         });
 

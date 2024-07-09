@@ -42,26 +42,22 @@ def upload_file():
     try:
         global folder_path
         if request.method == 'POST':
-            
+            target=''
             # Getting the inputs from the frontend.
             file = request.files['file']
-            folder_path = request.form['folderpath']
             option = request.form['option'] 
-
-            # Check for the path given is correct or wrong.
-            if os.path.exists(folder_path):
-                # call the main function for processing .....
-                result=main.main_function(file,folder_path,option)
-                
-                if(result[0]=="translated" or result[0]=="transcribed"):
-                    return render_template("index.html",message=result[0],filepath=result[1],fav_icon=fav_icon, uploaded_files=result[2]) 
-                else:
-                    return render_template('error.html', error_title="error", error_message=result[0],fav_icon=fav_icon), 500
-
+            if(option=='translate'):
+                target=request.form['translateTo']
             else:
-                message="invalid folder path!."
-                return render_template('error.html', error_title="patherror", error_message=message,fav_icon=fav_icon)
-
+                target=''
+            print(target)
+            # call the main function for processing .....
+            result=main.main_function(file,target,option)
+            
+            if(result[0]=="translated" or result[0]=="transcribed"):
+                return render_template("index.html",message=result[0],filepath=result[1],fav_icon=fav_icon, uploaded_files=result[2]) 
+            else:
+                return render_template('error.html', error_title="error", error_message=result[0],fav_icon=fav_icon), 500
 
         return render_template("index.html",message="none",fav_icon=fav_icon)
     

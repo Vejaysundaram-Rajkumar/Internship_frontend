@@ -42,7 +42,7 @@ def read_from_file():
         return []  # If the file doesn't exist, return an empty list
 
 
-def main_function(file,output_path,option): 
+def main_function(file,target,option): 
 
     # Main function to extract audio from video file.
     def Extractor(path,filename):
@@ -105,23 +105,8 @@ def main_function(file,output_path,option):
         return filename
 
     # Main function to save_file in the specified path.
-    def save_file(gen, spc):
-        base_name = os.path.basename(gen)  
-        file_name, file_ext = os.path.splitext(base_name)  
-        # Check if the destination folder already has a file with the same name
-        dest_path = os.path.join(spc, base_name)
+    def save_file(gen):
         list_=manage_file(gen)
-        if not os.path.exists(dest_path):
-            shutil.copy(gen, dest_path)
-        else:
-            i = 1
-            while True:
-                new_name = f"{file_name}_copy{i}{file_ext}"
-                new_path = os.path.join(spc, new_name)
-                if not os.path.exists(new_path):
-                    shutil.copy(gen, new_path)
-                    break
-                i += 1
         return list_
     
     
@@ -156,7 +141,7 @@ def main_function(file,output_path,option):
         return lines
     
     # Main function to translate .srt file.
-    def translate_subtitles(input_srt_file):
+    def translate_subtitles(input_srt_file,src,target):
 
         # Load model and tokenizer for translate model
         translate_path = "D:/projects/Internship_frontend/models/translation_mbart"
@@ -164,7 +149,7 @@ def main_function(file,output_path,option):
         tokenizer = MBart50TokenizerFast.from_pretrained(translate_path)
 
         # Function to translate text
-        def translate_text(text, src_lang="en_XX", tgt_lang="ta_IN"):
+        def translate_text(text, src_lang=src, tgt_lang=target):
             tokenizer.src_lang = src_lang
             encoded_text = tokenizer(text, return_tensors="pt")
             generated_tokens = model.generate(
@@ -177,7 +162,7 @@ def main_function(file,output_path,option):
         start_time = time.time()
 
         # Derive the output file path
-        output_srt_file = os.path.splitext(input_srt_file)[0] + "_tamil.srt"
+        output_srt_file = os.path.splitext(input_srt_file)[0] + "_translated.srt"
 
         with open(input_srt_file, "r", encoding="utf-8") as file:
             english_subtitles = list(srt.parse(file.read()))
@@ -218,24 +203,24 @@ def main_function(file,output_path,option):
         transcript_path=text_generation(audioname)
         # now removing the audio file.
         os.remove(audioname)
-        subs = pysrt.open(filename)
+        subs = pysrt.open(transcript_path)
         language = detect(subs[2].text)
         if(language=='ta'):
-            language='tamil'
+            language='ta_IN'
         elif(language=='en'):
-            language='english'
+            language='en_XX'
         try:
             result=[]
-            if(option=="transcribe"):
-                uploaded_files=save_file(transcript_path,output_path)
+            if(option=="transcribe" or language==target):
+                uploaded_files=save_file(transcript_path)
                 message="transcribed"
                 result.append(message)
                 result.append(transcript_path)
                 result.append(uploaded_files)
                 return result
             else:
-                tran_path=translate_subtitles(transcript_path)
-                uploaded_files=save_file(tran_path,output_path)
+                tran_path=translate_subtitles(transcript_path,language,target)
+                uploaded_files=save_file(tran_path)
                 # removing the transcript file or deleting it.
                 os.remove(transcript_path)
                 message="translated"
