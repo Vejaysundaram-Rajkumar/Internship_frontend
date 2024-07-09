@@ -18,10 +18,14 @@ import torch
 
 # for easy .srt formating operations.
 import srt
+import pysrt
 # for calcualting the elasped time.
 import time
 # importing the app.py here.
 import app as ap
+
+#importing language detector.
+from langdetect import detect
 
 
 
@@ -96,7 +100,6 @@ def main_function(file,output_path,option):
         audio = audio.set_frame_rate(16000)
         # Transcribe audio
         segments, info = model.transcribe(audio_file)
-
         filename = audio_file.split('.')[0] + "medium.srt"
         filename = generate_srt_file(segments, filename)
         return filename
@@ -215,7 +218,12 @@ def main_function(file,output_path,option):
         transcript_path=text_generation(audioname)
         # now removing the audio file.
         os.remove(audioname)
-
+        subs = pysrt.open(filename)
+        language = detect(subs[2].text)
+        if(language=='ta'):
+            language='tamil'
+        elif(language=='en'):
+            language='english'
         try:
             result=[]
             if(option=="transcribe"):

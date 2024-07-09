@@ -57,28 +57,35 @@
   </div>  
     <br>
     <br>
-<div class="upload-form">
-  <h2>Upload Video File</h2>
-  <p>Click on the "Choose File" button to upload a video file for processing:</p>
-  
-  <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-    <input type="file" id="myFile" name="file" accept=".mp4,.avi,.mov">
-    
+    <div class="upload-form">
+        <h2>Upload Video File</h2>
+        <p>Click on the "Choose File" button to upload a video file for processing:</p>
+        
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" id="myFile" name="file" accept=".mp4,.avi,.mov">
+            
+            <strong><label for="option">What do you want to do?</label></strong>
+            <select name="option" id="options">
+                <option value="translate">Transcribe and Translate</option>
+                <option value="transcribe">Transcribe</option>
+            </select>
+            
+            <!-- Hidden by default using the "hidden" class -->
+            <div id="translateOptions" class="hidden">
+                <strong><label for="translateTo">Translate to:</label></strong>
+                <select name="translateTo" id="translateTo">
+                    <option value="tamil">Tamil</option>
+                    <option value="english">English</option>
+                </select>
+            </div>
 
-  <strong><label for="option">What do you want to do?</label></strong>
-   <select name="option" id="options">
-       <option value="translate" selected>Transcribe and Translate</option>
-       <option value="transcribe">Transcribe</option>
-   </select>
-<br>
-<strong><label for="option">Language you want to translate to:</label></strong>
-<select name="option" id="options">
-    <option value="translate" selected>Tamil</option>
-    <option value="transcribe">English</option>
-</select>
-  </form>  
+            <label for="path">Folder Path:</label>
+            <input type="text" id="path" name="folderpath" placeholder="Enter folder path here">
+            <input type="submit" value="START" id="uploadButton">
+        </form>
+
         <div id="errorMessage" class="error-message"></div>
-</div>
+    </div>
 <br>
 <br>
 <div id="messageContainer">
@@ -122,6 +129,29 @@
 </div>
 </div>
 <script>
+// hides and unhides the translate option dropdown
+// Get the relevant elements
+const optionSelect = document.getElementById('options');
+        const translateOptions = document.getElementById('translateOptions');
+
+        // Function to show or hide the translation options based on selection
+        function toggleTranslateOptions() {
+            const selectedOption = optionSelect.value;
+            if (selectedOption === 'translate') {
+                translateOptions.classList.remove('hidden');
+            } else {
+                translateOptions.classList.add('hidden');
+            }
+        }
+
+        // Add event listener to call toggleTranslateOptions on change
+        optionSelect.addEventListener('change', toggleTranslateOptions);
+
+        // Call toggleTranslateOptions initially to set initial state
+        toggleTranslateOptions();
+
+
+
 // hides and unhides the form for uploading
 
 document.getElementById('getStartedButton').addEventListener('click', function() {

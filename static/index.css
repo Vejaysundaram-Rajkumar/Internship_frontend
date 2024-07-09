@@ -58,6 +58,9 @@ body {
     font-size: 18px;
     transition: background-color 0.3s ease;
   }
+  .hidden {
+    display: none;
+}
 
   .upload-form input[type="submit"]:hover {
     background-color: #2980b9; 
