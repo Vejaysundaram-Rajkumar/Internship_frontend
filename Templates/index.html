@@ -107,18 +107,37 @@
       <br>
 
       <div class="recent-files">
-          {% if uploaded_files %}
-          <strong>Recent Files Uploaded</strong>
-          {% for file_path in uploaded_files %}
-          <div class="file-card">
-              <h3>{{ file_path.split('uploads')[-1] }}</h3>  
-              <p><a href="{{ url_for('download', file_path=file_path) }}">Download</a></p>
-          </div>
-          {% endfor %}
-          {% else %}
-          <p>No recent files available!!.</p>
-          {% endif %}
-      </div>
+        <div class="title-bar">
+            <h1>Recent Transcripts</h1>
+            <button class="upload-button"> <i class="fa-solid fa-upload"></i> Upload/Transcribe</button>
+        </div>
+        <div class="file-list">
+            {% if uploaded_files %}
+            <table class="file-table">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>File Name</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file_path in uploaded_files %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ file_path.split('uploads')[-1].replace('\\', '').replace('.srt', '') }}</td>
+                        <td>
+                            <a href="{{ url_for('download', file_path=file_path) }}">Download <i class="fa-solid fa-download"></i> </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No recent files available!!</p>
+            {% endif %}
+        </div>
+    </div>
   </div>
 
 

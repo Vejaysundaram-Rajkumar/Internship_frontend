@@ -21,7 +21,7 @@ folder_path=''
 @app.route('/')
 def index():
     uploaded_files=main.read_from_file()
-    return render_template("index2.html",fav_icon=fav_icon,uploaded_files=uploaded_files)
+    return render_template("index.html",fav_icon=fav_icon,uploaded_files=uploaded_files)
 
 @app.route('/about')
 def about():
