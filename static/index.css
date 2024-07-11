@@ -1,6 +1,8 @@
 body {
   font-family: 'Arial', sans-serif;
+
 }
+
 /* css for logo */
 #header-img {
   width: 50%;
@@ -27,7 +29,7 @@ body {
   position: relative; /* Ensure relative positioning for absolute cursor */
   white-space: nowrap;
   overflow: hidden;
-  animation: typewriter 5s steps(80)  ,
+  animation: typewriter 3s steps(90)  ,
       blink 800ms steps(13) infinite normal;
   border-right: 5px solid black;
 }
@@ -46,7 +48,7 @@ body {
   color: #666;
   margin-top: 20px;
   
-  animation: fadeInUp 3s ease-out forwards; 
+  animation: fadeInUp 2s ease-out forwards; 
 }
 
 @keyframes fadeInUp {
@@ -67,20 +69,31 @@ body {
   to {
     width: 100%;
   }
-}
-.upload-form {
+}.upload-form {
   display: none;
-  max-width: 600px;
+  max-width: 500px;
   padding: 10px;
-  height:fit-content;
+  height: fit-content;
   justify-content: center;
   margin: 0 auto;
   color: #3a3939;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
-  transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 0 10px rgba(15, 138, 239, 0.886);
+  animation: slideIn 2s forwards;
 }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .upload-form:hover {
   transform: scale(1.1);

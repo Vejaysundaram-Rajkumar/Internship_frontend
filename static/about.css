@@ -1,8 +1,16 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #faa2bc, #f2366f);
+  font-family: 'Arial', sans-serif;
+
 }
-  
+
+/* css for logo */
+#header-img {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  left: 10%;
+
+}
 
 
 .main-heading {
