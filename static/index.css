@@ -71,7 +71,8 @@ body {
   }
 }.upload-form {
   display: none;
-  max-width: 450px;
+  max-width: 480px;
+  max-height: 430px;
   padding: 10px;
   height: fit-content;
   justify-content: center;
@@ -275,6 +276,9 @@ body {
 
   .upload-form, .recent-files{
       width: 100%;
+  }
+  .main-heading{
+    font-size:14px;
   }
 }
 /* loader css */
