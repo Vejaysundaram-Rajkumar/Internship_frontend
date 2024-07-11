@@ -77,6 +77,39 @@
       </p>
   </div>
     <div class="container2">
+        <div class="recent-files">
+            <div class="title-bar">
+                <h1><i class="fa fa-history" aria-hidden="true"></i> Recent Transcripts</h1>
+                <button class="upload-button" onclick="openupload()"> <i class="fa-solid fa-upload"></i> Upload/Transcribe</button>
+            </div>
+            <div class="file-list">
+                {% if uploaded_files %}
+                <table class="file-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>File Name</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file_path in uploaded_files %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ file_path.split('uploads')[-1].replace('\\', '').replace('.srt', '') }}</td>
+                            <td>
+                                <a href="{{ url_for('download', file_path=file_path) }}">Download <i class="fa-solid fa-download"></i> </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>No recent files available!!</p>
+                {% endif %}
+            </div>
+        </div>
+        <br>
       <div class="upload-form" id="upload-form">
           <h2>Upload Video File</h2>
           <p>Click on the "Choose File" button to upload a video file for processing:</p>
@@ -105,40 +138,6 @@
   
           <div id="errorMessage" class="error-message"></div>
       </div>
-      <br>
-
-      <div class="recent-files">
-        <div class="title-bar">
-            <h1><i class="fa fa-history" aria-hidden="true"></i> Recent Transcripts</h1>
-            <button class="upload-button" onclick="openupload()"> <i class="fa-solid fa-upload"></i> Upload/Transcribe</button>
-        </div>
-        <div class="file-list">
-            {% if uploaded_files %}
-            <table class="file-table">
-                <thead>
-                    <tr>
-                        <th>S.No</th>
-                        <th>File Name</th>
-                        <th>Download</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for file_path in uploaded_files %}
-                    <tr>
-                        <td>{{ loop.index }}</td>
-                        <td>{{ file_path.split('uploads')[-1].replace('\\', '').replace('.srt', '') }}</td>
-                        <td>
-                            <a href="{{ url_for('download', file_path=file_path) }}">Download <i class="fa-solid fa-download"></i> </a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            {% else %}
-            <p>No recent files available!!</p>
-            {% endif %}
-        </div>
-    </div>
   </div>
 
 
