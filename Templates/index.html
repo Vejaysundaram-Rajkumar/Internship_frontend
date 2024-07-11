@@ -117,7 +117,7 @@
           <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
               <input type="file" id="myFile" name="file" accept=".mp4,.avi,.mov">
               
-              <strong><label for="options">Translate/Transcribe</label></strong>
+              <strong><label for="options" id="op">Translate/Transcribe</label></strong>
               <select name="option" id="options">
                   <option value="translate">Transcribe and Translate</option>
                   <option value="transcribe">Transcribe</option>
@@ -125,15 +125,16 @@
               
               <!-- Hidden by default using the "hidden" class -->
               <div id="translateOptions" class="hidden">
-                  <strong><label for="translateTo">Translate to:</label></strong>
+                  <strong><label for="translateTo" id="op">Translate to:</label></strong>
                   <select name="translateTo" id="translateTo">
                       <option value="ta_IN">Tamil</option>
                       <option value="en_XX">English</option>
                   </select>
               </div>
               <br>
-              <a class="upload-button" id="close" onclick="closeupload()"> <i class="fa-solid fa-close"></i> Close</a>
-              <input type="submit" class="upload-button" onclick="submitfile()" value="START GENERATING" >
+              <input type="submit" class="form-button" onclick="submitfile()" value="START GENERATING" >
+              <a class="form-button" id="close" onclick="closeupload()">Close <i class="fa-solid fa-close"></i></a>
+
           </form>
   
           <div id="errorMessage" class="error-message"></div>

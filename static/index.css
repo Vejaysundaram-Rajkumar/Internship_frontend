@@ -71,7 +71,7 @@ body {
   }
 }.upload-form {
   display: none;
-  max-width: 500px;
+  max-width: 450px;
   padding: 10px;
   height: fit-content;
   justify-content: center;
@@ -96,7 +96,6 @@ body {
 
 
 .upload-form:hover {
-  transform: scale(1.1);
   background-color: #ffffff;
   box-shadow: 0 0 20px rgb(6, 95, 229);
 }
@@ -111,14 +110,20 @@ body {
   .upload-form p {
     text-align: center;
     color: #3a3939;  
+    
+  }
+  .upload-form label{
+    position: relative;
+    left:10%;
   }
 
   .upload-form input[type="file"] {
     display: block;
     align-self: center;
-    width: 60%;
+    width: 80%; 
     padding: 5px;
-
+    position: relative;
+    left:10%;
     margin: 10px 0;
     border: 2px solid lightblue; 
     border-radius: 5px;
@@ -128,7 +133,9 @@ body {
   }
   .upload-form select {
     display: block;
-    width: 60%;
+    width: 80%;
+    position: relative;
+    left:10%;
     padding: 5px;
     margin: 10px 0;
     border: 2px solid lightblue; 
@@ -162,8 +169,8 @@ body {
     border: 2px solid #3a3939;
     background-color: rgb(255, 255, 255);
     transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 3s ease-out forwards;
+    box-shadow: 0 0 10px rgba(15, 138, 239, 0.886);
+    animation: fadeInUp 2s ease-out forwards;
   }
   .title-bar {
     display: flex;
@@ -187,6 +194,21 @@ body {
     cursor: pointer;
     font-size: 16px;
   }
+  .form-button{
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+    left:20%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  
+  }
+  #close{
+    text-decoration: none;  
+  }
   #close:hover{
     background-color: red;
   }  
@@ -194,6 +216,9 @@ body {
     background-color: #0056b3;
   }
   
+  .form-button:hover{
+    background-color: #0056b3;
+  }
   
   .file-table {
     width: 100%;
