@@ -77,7 +77,7 @@
       </p>
   </div>
     <div class="container2">
-      <div class="upload-form">
+      <div class="upload-form" id="upload-form">
           <h2>Upload Video File</h2>
           <p>Click on the "Choose File" button to upload a video file for processing:</p>
           
@@ -99,7 +99,8 @@
                   </select>
               </div>
               <br>
-              <input type="submit" value="START GENERATING" id="uploadButton">
+              <a class="upload-button" id="close" onclick="closeupload()"> <i class="fa-solid fa-close"></i> Close</a>
+              <input type="submit" class="upload-button" onclick="submitfile()" value="START GENERATING" >
           </form>
   
           <div id="errorMessage" class="error-message"></div>
@@ -109,7 +110,7 @@
       <div class="recent-files">
         <div class="title-bar">
             <h1><i class="fa fa-history" aria-hidden="true"></i> Recent Transcripts</h1>
-            <button class="upload-button"> <i class="fa-solid fa-upload"></i> Upload/Transcribe</button>
+            <button class="upload-button" onclick="openupload()"> <i class="fa-solid fa-upload"></i> Upload/Transcribe</button>
         </div>
         <div class="file-list">
             {% if uploaded_files %}
@@ -218,16 +219,15 @@ const optionSelect = document.getElementById('options');
       alert("Transcripted video downloaded sucessfully!!");
     }
    
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.getElementById('uploadForm');
-            form.addEventListener('submit', function(event) {
-            form.submit();
-            showloader();
-                
-            });
-        });
-
-
+    function submitfile(){
+        showloader();
+        }
+    function openupload() {
+  document.getElementById("upload-form").style.display = "block";
+    }
+    function closeupload() {
+  document.getElementById("upload-form").style.display = "none";
+    }
 
 
   </script>
