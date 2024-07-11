@@ -1,8 +1,6 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background:linear-gradient(to right, #5ce4f3, #1566e9);
+  font-family: 'Arial', sans-serif;
 }
-
 /* css for logo */
 #header-img {
   width: 50%;
@@ -22,14 +20,13 @@ body {
 
 .main-heading {
   font-size: 3em;
-  color: #51535e;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #3a3939;
   margin-bottom: 20px;
 }
 
 .intro-text {
   font-size: 1.2em;
-  color: #433434;
+  color: #3a3939;
   line-height: 1.6;
 }
 
@@ -39,58 +36,62 @@ body {
   height:fit-content;
   justify-content: center;
   margin: 0 auto;
-  color: #000000;
+  color: #3a3939;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(248, 10, 149, 0.886);
 }
 
 .upload-form:hover {
   transform: scale(1.1);
   background-color: #ffffff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(248, 10, 149, 0.886);
 }
   
 
   .upload-form h2 {
     text-align: center;
-    color: #000000; 
+    color: #3a3939; 
     
   }
 
   .upload-form p {
     text-align: center;
-    color: #000000;  
+    color: #3a3939;  
   }
 
   .upload-form input[type="file"] {
     display: block;
-    width: 100%;
+    align-self: center;
+    width: 60%;
     padding: 5px;
+
     margin: 10px 0;
-    border: 2px solid #3498db; 
+    border: 2px solid #eb17a1; 
     border-radius: 5px;
     background-color: #ecf0f1; 
-    color: #333; 
+    color: #3a3939; 
     font-size: 16px;
   }
   .upload-form select {
     display: block;
-    width: 100%;
+    width: 60%;
     padding: 5px;
     margin: 10px 0;
-    border: 2px solid #3498db; 
+    border: 2px solid #eb17a1; 
     border-radius: 5px;
     background-color: #ecf0f1; 
-    color: #333; 
+    color: #3a3939; 
     font-size: 16px;
   }
   .upload-form input[type="submit"] {
-    background-color: #3498db; 
-    color: #fff; 
+    background-color: #0bc62d; 
+    color: #3a3939; 
     border: none;
     display: flex;
+    font-family:'monospace';
+    font-weight:bold;
     position: relative;
     left: 30%;
     padding: 12px 20px;
@@ -104,7 +105,7 @@ body {
 }
 
   .upload-form input[type="submit"]:hover {
-    background-color: #2980b9; 
+    background-color:#0c8b24;
   }
 
   .error-message {
@@ -120,17 +121,17 @@ body {
   height:fit-content;
   justify-content: center;
   margin: 0 auto;
-  color: #000000;
+  color: #3a3939;
   border-radius: 15px;
-  border: 2px solid #000000;
-  background-color: rgba(204, 202, 202, 0.749);
+  border: 2px solid #3a3939;
+  background-color: rgb(255, 255, 255);
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Hover effect for recent files */
 .recent-files:hover {
-  background-color: #f48383; /* Darker background color on hover */
+  background-color: #ffffff; /* Darker background color on hover */
   transform: scale(1.05); 
   
 }
@@ -139,7 +140,8 @@ body {
 .recent-files strong {
   display: block;
   font-size: 1.5em; /* Larger font size for emphasis */
-  color: #fff; /* Light text color */
+  color: #3a3939;
+  /* Light text color */
   margin-bottom: 20px; /* Space below the header */
 }
 
@@ -150,7 +152,7 @@ body {
   margin-bottom: 20px; /* Spacing between cards */
   border: 1px solid #ddd; /* Light border around each card */
   border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  box-shadow: 0 2px 4px rgba(237, 11, 185, 0.2); /* Shadow for depth */
   position: relative; /* Positioning context for pseudo-element */
   transition: transform 0.3s ease; /* Smooth transition for transform */
 }
