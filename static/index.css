@@ -72,7 +72,6 @@ body {
 }.upload-form {
   display: none;
   max-width: 450px;
-  max-height: fit-content;
   padding: 10px;
   height: fit-content;
   justify-content: center;
@@ -269,7 +268,7 @@ body {
   box-sizing: border-box;
 }
 
-@media (min-width: 601px) and (max-width:1000px) {
+@media (max-width: 768px) {
   .container2 {
       flex-direction: column;
   }
@@ -346,13 +345,6 @@ body {
 }
 
 @media (max-width: 600px) {
-  .container2 {
-    flex-direction: column;
-}
-
-.upload-form, .recent-files{
-    width: 100%;
-}
   .file-table th{
     font-style: normal;
     padding: 4px;
@@ -375,8 +367,4 @@ body {
     left:2%;
     
 }
-
-  .main-heading{
-    font-size: 18px;
-  }
 }
