@@ -200,18 +200,29 @@ body {
     color: white;
     padding: 10px 20px;
     position: relative;
-    left:20%;
+    left:30%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
   
   }
-  #close{
-    text-decoration: none;  
+  #close {
+    width:32px;
+    height: 32px;
+    display:inline-block;
+    justify-content:center;
+    position: absolute;
+    top:4%;
+    left:90%;
+    background-color:transparent;
+    color: #c0392b;
+    font-size: 18px;
+    cursor: pointer;
   }
-  #close:hover{
-    background-color: red;
+  
+  #close:hover {
+    color: red;
   }  
   .upload-button:hover {
     background-color: #0056b3;

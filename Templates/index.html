@@ -111,7 +111,8 @@
         </div>
         <br>
       <div class="upload-form" id="upload-form">
-          <h2>Upload Video File</h2>
+        <a  id="close" onclick="closeupload()"><i class="fa-solid fa-close"></i></a>
+        <h2>Upload Video File</h2>
           <p>Click on the "Choose File" button to upload a video file for processing:</p>
           
           <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
@@ -132,7 +133,7 @@
                   </select>
               </div>
               <input type="submit" class="form-button" onclick="submitfile()" value="START GENERATING" >
-              <a class="form-button" id="close" onclick="closeupload()">Close <i class="fa-solid fa-close"></i></a>
+              
 
           </form>
   
