@@ -1,5 +1,4 @@
 body {
-  margin: auto;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-family: 'Arial', sans-serif;
   overflow: auto;
@@ -92,7 +91,7 @@ body {
   margin-bottom: 20px;
   font-size: 2.5rem;
   color: #333;
-  position: relative; /* Ensure relative positioning for absolute cursor */
+  position: relative; 
   white-space: nowrap;
   overflow: hidden;
   animation: typewriter 3s steps(90)  ,
@@ -135,7 +134,8 @@ body {
   to {
     width: 100%;
   }
-}.upload-form {
+}
+.upload-form {
   display: none;
   max-width: 480px;
   max-height: 430px;
@@ -168,13 +168,13 @@ body {
 }
   
 
-  .upload-form h2 {
+.upload-form h2 {
     text-align: center;
     color: #3a3939; 
     
   }
 
-  .upload-form p {
+.upload-form p {
     text-align: center;
     color: #3a3939;  
     
@@ -448,6 +448,8 @@ body {
 
   .upload-form input[type="submit"] {
     left:2%;
-    
-}
+  }
+  .upload-form input[type="file"],.upload-form select{
+    width:80%;
+  }
 }
