@@ -126,12 +126,20 @@ body {
     position: relative;
     left:10%;
     margin: 10px 0;
-    border: 2px solid lightblue; 
-    border-radius: 5px;
-    background-color: #ecf0f1; 
+    border: 2px solid #8e44ad; 
+    border-radius: 10px;
+    background-color:transparent; 
     color: #3a3939; 
     font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
   }
+  
+  .upload-form input[type="file"]:hover {
+    border-color: #9b59b6;
+    background-color: rgb(141, 224, 245);
+  }
+  
+  
   .upload-form select {
     display: block;
     width: 80%;
@@ -139,13 +147,18 @@ body {
     left:10%;
     padding: 5px;
     margin: 10px 0;
-    border: 2px solid lightblue; 
-    border-radius: 5px;
-    background-color: #ecf0f1; 
+    border: 2px solid #8e44ad; 
+    border-radius: 10px;
+    background-color: transparent; 
     color: #3a3939; 
     font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
   }
-
+  
+  .upload-form select:hover {
+    border-color: #9b59b6;
+    background-color: rgb(141, 224, 245);
+  }
   .hidden {
     display: none;
 }

@@ -223,11 +223,16 @@ const optionSelect = document.getElementById('options');
         showloader();
         }
     function openupload() {
-  document.getElementById("upload-form").style.display = "block";
+
+  document.querySelector('.upload-button').style.display = 'none';
+  document.getElementById('upload-form').style.display = 'block';
+  document.querySelector('.title-bar').style.justifyContent = 'center';
     }
     function closeupload() {
-  document.getElementById("upload-form").style.display = "none";
-    }
+  document.querySelector('.upload-button').style.display = 'block';
+  document.getElementById('upload-form').style.display = 'none';
+  document.querySelector('.title-bar').style.justifyContent = 'space-between';
+}
 
 
   </script>
