@@ -1,8 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #faa2bc, #f2366f);
-    
-}
+  
+  }
 .error-container {
     margin: 200px 300px;
     width:50%;
