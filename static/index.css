@@ -93,7 +93,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   animation: typewriter 3s steps(90)  ,
-      blink 800ms steps(13) infinite normal;
+      blink 4s steps(13) ;
   border-right: 5px solid black;
 }
 
