@@ -7,7 +7,7 @@ import main
 
 
 UPLOAD_FOLDER = 'D:/projects/Internship_frontend/uploads'
-images=os.path.join('static','images')
+images=os.path.join('static')
 upload=os.path.join('uploads')
 
 app = Flask(__name__)
