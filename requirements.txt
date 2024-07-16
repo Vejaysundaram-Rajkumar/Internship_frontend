@@ -1,0 +1,11 @@
+faster_whisper==1.0.2
+Flask==3.0.3
+langdetect==1.0.9
+moviepy==1.0.3
+pydub==0.25.1
+pysrt==1.1.2
+pywebview==5.1
+srt==3.5.3
+torch==2.3.1
+transformers==4.41.2
+Werkzeug==3.0.3
