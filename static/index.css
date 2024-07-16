@@ -357,6 +357,21 @@ body {
     font-size:14px;
   }
 }
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .main-heading{
+    font-size:18px;
+  }
+  .recent-files {
+    max-width: 80%;
+  }
+  .upload-form select {
+    width: 70%;
+  }
+  .upload-form input{
+    width: 70%;
+  }
+}
 /* loader css */
 .loader {
   position: fixed;
