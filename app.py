@@ -9,7 +9,7 @@ import main
 webview.settings['ALLOW_DOWNLOADS'] = True
 
 # Define upload folder and static images folder
-UPLOAD_FOLDER = 'D:/projects/Internship_frontend/uploads'
+UPLOAD_FOLDER = 'uploads/'
 images = os.path.join('static')
 upload = os.path.join('uploads')
 

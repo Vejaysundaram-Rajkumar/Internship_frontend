@@ -49,7 +49,7 @@ def main_function(file,target,option):
         try:
             cvt_vd = moviepy.editor.VideoFileClip(path)
             ext_ad= cvt_vd.audio
-            output_directory = "D:/projects/Internship_frontend/uploads"
+            output_directory = "uploads/"
             # Create the full output file path
             name = os.path.join(output_directory, filename.split('.')[0] + "_.mp3")
             ext_ad.write_audiofile(name)
@@ -85,7 +85,7 @@ def main_function(file,target,option):
         # Set environment variable to suppress OpenMP warning
         os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
         # Path to the directory containing the model files
-        model_dir = "D:/projects/Internship_frontend/models/transcription"
+        model_dir = "transcription/"
         use_cuda = torch.cuda.is_available()
         if(use_cuda):
             # Load the WhisperModel from local files
@@ -144,7 +144,7 @@ def main_function(file,target,option):
     def translate_subtitles(input_srt_file,src,target):
 
         # Load model and tokenizer for translate model
-        translate_path = "D:/projects/Internship_frontend/models/translation_mbart"
+        translate_path = "translation_mbart/"
         model = MBartForConditionalGeneration.from_pretrained(translate_path)
         tokenizer = MBart50TokenizerFast.from_pretrained(translate_path)
 
